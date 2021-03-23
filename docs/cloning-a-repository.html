@@ -24,7 +24,7 @@
 <meta name="author" content="Dr. Tyler Shoemaker" />
 
 
-<meta name="date" content="2021-03-22" />
+<meta name="date" content="2021-03-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="pushing-a-repository.html"/>
-
+<link rel="next" href="opening-issues-and-making-changes.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -99,7 +99,19 @@
 <li class="chapter" data-level="4.3" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pushing-a-local-repository"><i class="fa fa-check"></i><b>4.3</b> Pushing a Local Repository</a></li>
 <li class="chapter" data-level="4.4" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#tracking-files-remotely"><i class="fa fa-check"></i><b>4.4</b> Tracking Files Remotely</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html"><i class="fa fa-check"></i><b>5</b> Cloning a Repository</a></li>
+<li class="chapter" data-level="5" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html"><i class="fa fa-check"></i><b>5</b> Cloning a Repository</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html#cloning"><i class="fa fa-check"></i><b>5.1</b> Cloning</a></li>
+<li class="chapter" data-level="5.2" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html#branching"><i class="fa fa-check"></i><b>5.2</b> Branching</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="opening-issues-and-making-changes.html"><a href="opening-issues-and-making-changes.html"><i class="fa fa-check"></i><b>6</b> Opening Issues and Making Changes</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="opening-issues-and-making-changes.html"><a href="opening-issues-and-making-changes.html#about-issues"><i class="fa fa-check"></i><b>6.1</b> About Issues</a></li>
+<li class="chapter" data-level="6.2" data-path="opening-issues-and-making-changes.html"><a href="opening-issues-and-making-changes.html#opening-an-issue"><i class="fa fa-check"></i><b>6.2</b> Opening an Issue</a></li>
+<li class="chapter" data-level="6.3" data-path="opening-issues-and-making-changes.html"><a href="opening-issues-and-making-changes.html#making-changes"><i class="fa fa-check"></i><b>6.3</b> Making Changes</a></li>
+<li class="chapter" data-level="6.4" data-path="opening-issues-and-making-changes.html"><a href="opening-issues-and-making-changes.html#pushing-changes-on-a-branch"><i class="fa fa-check"></i><b>6.4</b> Pushing Changes on a Branch</a></li>
+<li class="chapter" data-level="6.5" data-path="opening-issues-and-making-changes.html"><a href="opening-issues-and-making-changes.html#closing-an-issue"><i class="fa fa-check"></i><b>6.5</b> Closing an Issue</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -119,15 +131,67 @@
             <section class="normal" id="section-">
 <div id="cloning-a-repository" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Cloning a Repository</h1>
+<p>While tracking your own files remotely with GitHub is great for managing and
+storing your files, the service is above all a communication channel, in which
+people can share and discuss the code/files they’re working on. We haven’t yet
+taken advantage of much of what makes GitHub useful: getting files for a project,
+modifying them, discussing changes with team members, and implementing those
+changes.</p>
+<div id="cloning" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Cloning</h2>
+<p>To start using GitHub collaboratively, we need to retrieve, or <strong>clone</strong>, a
+repository. This will create a local copy of project files.</p>
+<p>First, go back to your Home directory. You’ll be putting a repository here (in
+command line speak, the repository will be a “child” of Home).</p>
+<pre><code>cd ~</code></pre>
+<p>Then, go to the following link: <a href="https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox">https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox</a></p>
+<p>Once there, click on the green “Code” button, which should show the following:</p>
+<p><img src="img/clone_repository_github_view.png" /></p>
+<p>Select the “SSH” option (you could also retrieve this repository with GitHub
+Desktop or download it as a .zip file). Copy the text GitHub provides to your
+clipboard.</p>
+<p>In the command line, type <code>git clone</code>, add a space, and then paste in the above
+text. The full line should look like this:</p>
+<pre><code>git clone git@github.com:ucdavisdatalab/workshop_git_for_teams_sandbox.git</code></pre>
+<p>Hit “Enter”. If you’d like, you can use <code>ls</code> to see the newly made directory.
+You should see something like the following:</p>
+<p><img src="img/clone_repository_command_line_view.png" /></p>
+<p>If you <code>cd</code> into the directory and then type <code>ls -a</code>, you’ll see a README.md
+file and a .git file, which contains all the logging info for the repository.</p>
+<p><img src="img/clone_repository_lsa.png" /></p>
+</div>
+<div id="branching" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Branching</h2>
+<p>From here, you can start making and tracking changes. But if you’re working with
+a team, you need to be sure that the changes you make don’t conflict with
+changes your team members may be making. This is where branching steps in.
+Version control systems like Git help you avoid major change conflicts (and thus
+lost or redundant work) by letting you “branch” a repository to complete tasks
+in parallel with others working on the project. Usually, teams will have a stable,
+“Main” branch, which serves as an enduring reference point for
+subsequent modifications. [MORE]</p>
+<p>Given all this, we need to branch the repository we’ve just cloned. We’ll do
+so locally and then we’ll push that branch to the remote repository.</p>
+<p>First, check whether the cloned repository has any branches with <code>git branch</code>:</p>
+<p><img src="img/check_branches.png" /></p>
+<p>Just “main” so far. Let’s make a new one. Recall that you can make and switch to
+a new branch with one command:</p>
+<pre><code>git checkout -b &lt;branch-name&gt;</code></pre>
+<p>Use this command to branch from the main. Name your branch with your first name
+and the first initial of your last name.</p>
+<pre><code>git checkout -b &lt;firstname_lastinitial&gt;</code></pre>
+<p>You should see something like the following:</p>
+<p><img src="img/new_branch.png" /></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="pushing-a-repository.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="pushing-a-repository.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="opening-issues-and-making-changes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -149,7 +213,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ucdavisdatalab/workshop_introduction_to_version_control/edit/main/05_cloning-a-repository.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/05_cloning-a-repository.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -157,7 +221,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ucdavisdatalab/workshop_introduction_to_version_control/blob/main/05_cloning-a-repository.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/05_cloning-a-repository.Rmd",
 "text": null
 },
 "download": null,

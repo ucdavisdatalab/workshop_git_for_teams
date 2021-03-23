@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Pushing a Repository | Reproducible Research for Teams with GitHub</title>
-  <meta name="description" content="4 Pushing a Repository | Reproducible Research for Teams with GitHub" />
+  <title>6 Opening Issues and Making Changes | Reproducible Research for Teams with GitHub</title>
+  <meta name="description" content="6 Opening Issues and Making Changes | Reproducible Research for Teams with GitHub" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Pushing a Repository | Reproducible Research for Teams with GitHub" />
+  <meta property="og:title" content="6 Opening Issues and Making Changes | Reproducible Research for Teams with GitHub" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ucdavisdatalab/workshop_introduction_to_version_control" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Pushing a Repository | Reproducible Research for Teams with GitHub" />
+  <meta name="twitter:title" content="6 Opening Issues and Making Changes | Reproducible Research for Teams with GitHub" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ssh-keys-and-github.html"/>
-<link rel="next" href="cloning-a-repository.html"/>
+<link rel="prev" href="cloning-a-repository.html"/>
+
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -129,108 +129,111 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pushing-a-repository" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Pushing a Repository</h1>
-<p>Now that you’re able to use SSH keys with GitHub, it’s time to sync the website
-with a local repository on your computer.</p>
-<div id="making-a-test-repository" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Making a Test Repository</h2>
-<p>First, use the command line to make a new directory in your Home folder:</p>
-<pre><code>mkdir ~/my_first_remote_directory</code></pre>
-<p>Put this directory under version control with Git:</p>
-<pre><code>cd ~/my_first_remote_directory
-git init</code></pre>
-<p>With Vim, make a README markdown file:</p>
-<pre><code>vim README.md</code></pre>
-<p>Write and save “Hello world!” in the file. You should see something like the
-following:</p>
-<p><img src="img/hello_world.png" /></p>
-<p>Exit Vim. Then, add README.md to Git and commit your changes. Don’t forget to
-write a short note in the commit message.</p>
-<pre><code>git add README.md
-git commit -m &#39;Add a README file&#39;</code></pre>
-<p>You should see the following:</p>
-<p><img src="img/commit_readme.png" /></p>
-</div>
-<div id="preparing-to-sync-your-repository" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Preparing to Sync Your Repository</h2>
-<p>So far so good! All we’ve done is repeat the normal workflow for putting files
-under version control. But now we need to step away from the command line for
-a moment and prepare a space for receiving this repository on GitHub.</p>
-<p>To do so, go to github.com and, on your homepage, click the “Create repository”
-button. You’ll be taken to this page:</p>
-<p><img src="img/new_repository.png" /></p>
-<p>There are a few things of note here:</p>
+<div id="opening-issues-and-making-changes" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Opening Issues and Making Changes</h1>
+<p>You’ve made a branch! It’s now possible to make changes to the cloned repository
+without stepping on the toes of your team members. However, it would be helpful
+to communicate with your team and tell them what you’re working on.</p>
+<div id="about-issues" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> About Issues</h2>
+<p>On GitHub, one of the primary ways we do this is through <strong>Issues</strong>. Issues are
+the basic unit of project management on GitHub: they’re used for reporting bugs,
+keeping track of tasks, and requesting project enhancements. <em>Scope</em> is important
+for issues: an issue should address a specific bug or a discrete task, which a
+team member can then work on. Examples might include:</p>
 <ul>
-<li>Repository name: your repository’s name, which should be the same as what’s on your computer</li>
-<li>Description: a short (1-2 sentence) explanation of what’s in this repository</li>
-<li>Public/private setting: repositories may be either “public” (viewable by anyone) or “private” (only viewable by you and those to whom you grant access)</li>
-<li>Initialize with details, including:
-<ul>
-<li>A README file: a form of documentation; provides information about the files in the repository</li>
-<li>A .gitignore file: instructs Git to ignore specific files or filetypes</li>
-<li>A license: governs the use or redistribution of your files</li>
-</ul></li>
+<li>add an “About Us” button to a website navigation bar</li>
+<li>following a recent directory restructure, filepaths need to be rewritten</li>
+<li>fix the encodings of a source file</li>
+<li>update README to include new information about recent changes</li>
 </ul>
-<p>Because we’re initializing this repository from an existing directory, we won’t
-bother with most of the extra details. But we do need a title, which should be
-the same as what’s on your local computer (“my_first_remote_directory”). A
-description is helpful but not necessary for our purposes; the same goes for a
-license. Finally, we will choose to make this a public repository (meaning
-anyone can see it).</p>
-<p><img src="img/new_repository_details.png" /></p>
+<p>Issues contain the following parts:</p>
+<ul>
+<li>A title: a brief summary of the task, bug, or request</li>
+<li>A description: space for additional information about the task, bug, or request</li>
+<li>Assignees: information about which team member is working on the issue</li>
+<li>Labels: projects might ask team members to specify an issue type with a tag (e.g. “bug”, “enhancement”)</li>
+<li>Milestones: teams can set larger goals for a project, of which a given issue might be a part</li>
+<li>Comments: space where team members can discuss issues</li>
+</ul>
+<p>Typically, a team member will <strong>open</strong> an issue, enter the above information,
+and begin working on whatever task that issue requires. When they’re finished,
+the team member will <strong>close</strong> the issue, which lets others know that that
+task has been completed.</p>
+<p>You can read more about GitHub issues <a href="https://guides.github.com/features/issues/">here</a>.</p>
 </div>
-<div id="pushing-a-local-repository" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Pushing a Local Repository</h2>
-<p>Once you’ve entered the above information, click “Create repository.” GitHub
-will take you to a new screen, which gives you a number of options for making or
-uploading new files to the repository.</p>
-<p><img src="img/new_repository_options.png" /></p>
-<p>Since we already have a repository made, we’ll choose “Push an existing
-repository from the command line.” Pushing our repository is as easy as
-sequentially entering into the command line the three commands GitHub provides.</p>
-<pre><code>git remote add origin git@github.com:&lt;your user account&gt;/my_first_remote_directory.git
-git branch -M main
-git push -u origin</code></pre>
-<p>On the command line, that looks like this:</p>
-<p><img src="img/push_repository_command_line.png" /></p>
-<p>[NOTE A FEW THINGS WE’VE DONE IN THE ABOVE]</p>
-<p>The GitHub site won’t immediately refresh itself once you’ve entered the above
-commands, but if you click on the “&lt; &gt; Code” tab or on the name of the directory,
-you’ll see that the repository has been synced and your README.md file is now
-online.</p>
-<p><img src="img/new_repository_synced.png" /></p>
-<p>Note that GitHub automatically looks for a README file in your repository. If it
-finds one that contains renderable <a href="https://guides.github.com/features/mastering-markdown/">markdown</a> code, it will
-render the file on your repository’s main page. (More information about writing
-effective README files is available through the DataLab’s data documentation
-<a href="https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/">workshop</a>.)</p>
+<div id="opening-an-issue" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Opening an Issue</h2>
+<p>Before we make any changes to our cloned repository, let’s open an issue. Go to
+the “Issues” tab at <a href="https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox">https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox</a>
+and click the green “New issue” button. It should take you to the following page:</p>
+<p><img src="img/new_issue.png" /></p>
+<p>You’ll be adding your name to the repository’s README.md file. Your issue’s
+title should reflect this task.</p>
+<p><img src="img/new_issue_title_description.png" /></p>
+<p>With this information entered, assign yourself to this issue:</p>
+<center>
+<img src="img/new_issue_assigned.png" />
+</center>
+<p>Click the green “Submit new issue” button. GitHub will take you to a new page:</p>
+<p><img src="img/new_issue_submitted.png" /></p>
 </div>
-<div id="tracking-files-remotely" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Tracking Files Remotely</h2>
-<p>With this repository made, GitHub can start tracking changes you make to your
-files, much as Git does locally. The process works exactly like the one you
-do for Git, though it requires one more step.</p>
-<p>First, we’ll alter our README.md. Reopen the file with vim, skip a line down
-from the line you’ve already written, and add “My name is <your name>.” Save and
-quit.</p>
-<p><img src="img/hello_world_changed.png" /></p>
-<p>Then, add the file and commit your changes.</p>
-<p><img src="img/commit_readme_update.png" /></p>
-<p>If you want to push these changes to your remote repository, simply type the
-following in the command line:</p>
-<pre><code>git push</code></pre>
-<p>You’ll see a similar message appear about enumerating, counting, and writing
-objects to GitHub. Afterwards, if you refresh your file on GitHub, you should
-see your changes:</p>
-<p><img src="img/new_repository_synced_updated.png" /></p>
-<p>Note that your commit message appears here as well:</p>
-<p><img src="img/new_repository_synced_message_highlight.png" /></p>
-<p>If you click the commit tag:</p>
-<p><img src="img/new_repository_synced_commit_tag.png" /></p>
-<p>You’ll be taken to another page, which shows you the differences between your
-old version and the new one:</p>
-<p><img src="img/github_vdiff.png" /></p>
+<div id="making-changes" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Making Changes</h2>
+<p>With your issue open, it’s now time to make your changes.</p>
+<p>In the command line, open the README.md file with Vim. Go to line 12 and enter
+your first name and the first initial of your last name.</p>
+<p><img src="img/name_to_readme.png" /></p>
+<p>Save the file and quit Vim. Add the file to the Git staging area with <code>git add</code>.</p>
+<p>From here, you can commit the file as you normally would. But since you’re
+working on a specific issue, it would be helpful to reference that issue in your
+commit message. That way, your team can associate specific changes made to a
+project with the issues that discuss those changes.</p>
+<p>GitHub makes tracking issues easier by assigning each issue a number. In the
+example above, “Add ‘Tyler S.’ to README” is issue #1 (yours will be something
+different). To reference this issue in a commit, simply type the issue number in
+the commit message:</p>
+<p><img src="img/reference_an_issue.png" /></p>
+</div>
+<div id="pushing-changes-on-a-branch" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Pushing Changes on a Branch</h2>
+<p>To see how GitHub makes reference to this commit, we’ll need to push our changes.
+But if you try <code>git push</code> from here, you’ll get the following error message:</p>
+<p><img src="img/no_upstream_branch.png" /></p>
+<p>Here, Git is telling you that the remote repository doesn’t have a branch to
+associate your changes with; you’ve made a <em>local</em> branch, but that doesn’t
+automatically create a <em>remote</em> branch. We can see what branches are
+available on the remote repository with <code>git branch -a</code>:</p>
+<p><img src="img/see_all_branches.png" /></p>
+<p>The text in green lists local branches, while the red text lists remote
+branches. The “-&gt;” arrow that points from a red remote with a green local tells
+you which remote branch your own main branch is synced with.</p>
+<p>From this list, you can see that the remote repository doesn’t have your branch.
+You’ll need to push it.</p>
+<p>To do so, type the following into your command line:</p>
+<pre><code>git push --set-upstream origin &lt;branch-name&gt;</code></pre>
+<p>There’s also a bit of shorthand for this command:</p>
+<pre><code>git push -u origin &lt;branch-name&gt;</code></pre>
+<p>(Note: here “origin” references your local repository.)</p>
+<p>Once you press “Enter”, you should see something like this:</p>
+<p><img src="img/push_branch_to_remote.png" /></p>
+<p>Now, if you type <code>git branch -a</code>, you’ll see a remote copy of your branch. You
+can also visit the repository page on GitHub, where you’ll see a notice that a
+branch has “recent pushes”.</p>
+<p><img src="img/github_recent_pushes.png" /></p>
+<p>Click on the “branches” icon:</p>
+<p><img src="img/github_recent_pushes_focus.png" /></p>
+<p>…and you’ll see a list of branches.</p>
+<p>If you click on yours, you’ll see that this branch is “ahead” of the main branch
+by 1 commit. You’ll also see that your change has appeared down in the README
+view. Finally, you’ll see in the commit message view that the message has turned
+your issue number into a hyperlink.</p>
+<p><img src="img/github_pushed_branch_changes.png" /></p>
+</div>
+<div id="closing-an-issue" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Closing an Issue</h2>
+<p>If you click on that hyperlink, you’ll be taken directly to the issue you
+created.</p>
 
 </div>
 </div>
@@ -239,8 +242,8 @@ old version and the new one:</p>
           </div>
         </div>
       </div>
-<a href="ssh-keys-and-github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cloning-a-repository.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cloning-a-repository.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -262,7 +265,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/04_pushing-a-repository.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/06_opening-issues-and-making-changes.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -270,7 +273,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/04_pushing-a-repository.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/06_opening-issues-and-making-changes.Rmd",
 "text": null
 },
 "download": null,

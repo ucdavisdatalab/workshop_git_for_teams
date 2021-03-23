@@ -17,3 +17,11 @@ preparing-to-sync-your-repository
 pushing-a-local-repository
 tracking-files-remotely
 cloning-a-repository
+cloning
+branching
+opening-issues-and-making-changes
+about-issues
+opening-an-issue
+making-changes
+pushing-changes-on-a-branch
+closing-an-issue
