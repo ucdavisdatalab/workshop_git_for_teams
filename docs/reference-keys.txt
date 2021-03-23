@@ -30,3 +30,6 @@ a-quick-change-of-plans
 fetching-a-remote-branch
 merging-branches
 closing-an-issue
+open-and-merge-a-pull-request
+opening-a-pull-request
+merging-a-pull-request

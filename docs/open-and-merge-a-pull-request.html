@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Setting up a GitHub Account | Reproducible Research for Teams with GitHub</title>
-  <meta name="description" content="2 Setting up a GitHub Account | Reproducible Research for Teams with GitHub" />
+  <title>8 Open and Merge a Pull Request | Reproducible Research for Teams with GitHub</title>
+  <meta name="description" content="8 Open and Merge a Pull Request | Reproducible Research for Teams with GitHub" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Setting up a GitHub Account | Reproducible Research for Teams with GitHub" />
+  <meta property="og:title" content="8 Open and Merge a Pull Request | Reproducible Research for Teams with GitHub" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ucdavisdatalab/workshop_introduction_to_version_control" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Setting up a GitHub Account | Reproducible Research for Teams with GitHub" />
+  <meta name="twitter:title" content="8 Open and Merge a Pull Request | Reproducible Research for Teams with GitHub" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="preliminaries.html"/>
-<link rel="next" href="ssh-keys-and-github.html"/>
+<link rel="prev" href="merging-remote-branches.html"/>
+
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -141,58 +141,46 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="setting-up-a-github-account" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Setting up a GitHub Account</h1>
-<div id="about-github" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> About GitHub</h2>
-<p>GitHub is a repository hosting service. [MORE]</p>
+<div id="open-and-merge-a-pull-request" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Open and Merge a Pull Request</h1>
+<p>This last part of the workshop will be demo-only. Now that some changes have
+been made to various branches, we’re going to merge one of those branches back
+into the main branch using a <strong>pull request</strong> (the instructor will demo this so
+that we don’t run into several conflicts). A pull request… [MORE].</p>
+<div id="opening-a-pull-request" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Opening a Pull Request</h2>
+<p>You can open a pull request by clicking on the “Pull requests” tab.</p>
+<p><img src="img/github_pull_requests.png" /></p>
+<p>From here, click on the green “New pull request.”</p>
+<p>Under the “Comparing changes” heading, select two branches from the drop down
+menus. The branch on the right will be the branch you’re merging <em>into</em> the
+branch on the left. Once you’ve made your selection, GitHub will scan through
+the branches and identify any differences between them.</p>
+<p><img src="img/github_compare_changes.png" /></p>
+<p>If the branches are able to be merged, click “Create pull request.” You’ll be
+taken to a new page, which looks quite similar to the what you’d see if you
+opened an issue. Just like an issue, a pull request should have a title and a
+description. You can assign yourself the role of making the request and, if
+applicable, you can ask someone to review the changes before you implement them
+(using the “Reviewers” function on the right).</p>
+<p><img src="img/github_write_a_pull_request.png" /></p>
+<p>Opening a pull request does not automatically implement a merge. Rather, the
+pull request stays open, providing a space for people to discuss the changes,
+make revisions if need be, etc.</p>
 </div>
-<div id="basic-github-account-setup" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Basic GitHub Account Setup</h2>
-<p>To use GitHub, you need to make a (free) account. You can do so by going to
-<a href="https://github.com/">github.com</a>. Once you’re there, click “Sign Up” in the
-top-right corner of the page. This should take you to a form, which asks you to
-enter a <strong>username</strong>, <strong>email address</strong>, and <strong>password</strong>.</p>
-<p><img src="img/create_an_account.png" /></p>
-<p>After you’ve entered in this information (and completed a quick CAPTCHA), GitHub
-will make you an account. Then, the site will prompt you to complete an
-optional survey. Fill it out, or scroll to the bottom to skip it.</p>
-<p>Either way, you’ll need to then verify your email address. Go to your inbox and
-look for an email from GitHub. Click the “Verify email address” button. Doing so
-will take you to your homepage, where, if you’d like, you can add a few details
-about yourself.</p>
-<p><img src="img/github_new_homepage.png" /></p>
-<p>You now have a GitHub account!</p>
-</div>
-<div id="github-desktop-or-the-command-line" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> GitHub Desktop, or the Command Line?</h2>
-<p>Remember that Git is separate from GitHub. The latter is a service that’s been<br />
-built around the former. One part of the services that GitHub offers is an
-application called <a href="https://desktop.github.com/">GitHub Desktop</a>, which allows
-users to manage their repositories with a point-and-click graphical user
-interface (or GUI). Ultimately, it’s a matter of preference whether you use the
-GUI or stick with the command line for your own projects (and often, you might
-end up using a little of both), but for this workshop, we will interact with
-GitHub via the command line. One of the primary reasons for this has to do with
-the fact that not every computer you interact with will have GitHub’s GUI
-installed—or even have a screen! Many remote servers offer command line-only
-access, and if you ever want to sync your files on these machines, you’ll need
-to do so without GitHub Desktop. Luckily, GitHub seamlessly extends Git commands,
-so using the service without the GUI is, as we’ll see, quite straightforward.</p>
-</div>
-<div id="locally-setting-up-your-account-credentials" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Locally Setting Up Your Account Credentials</h2>
-<p>Regardless of how you make your commits, you will need to use the command line
-to do one bit of setup. In either Terminal (Mac) or Git Bash (Windows), enter
-the following commands to associate your name and email with the commits you
-make (note: you do not need to use your GitHub username):</p>
-<pre><code>git config --global user.name &quot;&lt;your name&gt;&quot;
-git config --global user.email &quot;&lt;your email&gt;&quot;</code></pre>
-<p>You can check whether this was successful by simply calling either, or both, of
-the following:</p>
-<pre><code>git config --global user.name
-git config --global user.email</code></pre>
-<p>These two commands should echo back the information you’ve just entered.</p>
+<div id="merging-a-pull-request" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Merging a Pull Request</h2>
+<p>Once your team is happy with the changes, and once GitHub has verified that
+there are no conflicts between the branches, you can click “Merge pull request”.
+Alternatively, you can merge the pull request on the command line by following
+the instructions listed below.</p>
+<p><img src="img/github_no_conflicts.png" /></p>
+<p>For our purposes, we’ll just click the button. GitHub will then register that
+the merge has been made:</p>
+<p><img src="img/github_successful_pull_merge.png" /></p>
+<p>If you went back to the main page, you’d see that your changes are implemented.
+From here, you can delete your branch (if you’d like) and then start on the
+next changes you’d like to make.</p>
 
 </div>
 </div>
@@ -201,8 +189,8 @@ git config --global user.email</code></pre>
           </div>
         </div>
       </div>
-<a href="preliminaries.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ssh-keys-and-github.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="merging-remote-branches.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -224,7 +212,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/02_setting-up-a-github-account.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/08_open-and-merge-pull-requests.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -232,7 +220,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/02_setting-up-a-github-account.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/08_open-and-merge-pull-requests.Rmd",
 "text": null
 },
 "download": null,
