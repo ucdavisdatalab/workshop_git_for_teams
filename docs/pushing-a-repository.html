@@ -98,6 +98,7 @@
 <li class="chapter" data-level="4.2" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#preparing-to-sync-your-repository"><i class="fa fa-check"></i><b>4.2</b> Preparing to Sync Your Repository</a></li>
 <li class="chapter" data-level="4.3" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pushing-a-local-repository"><i class="fa fa-check"></i><b>4.3</b> Pushing a Local Repository</a></li>
 <li class="chapter" data-level="4.4" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#tracking-files-remotely"><i class="fa fa-check"></i><b>4.4</b> Tracking Files Remotely</a></li>
+<li class="chapter" data-level="4.5" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pulling-changes-from-a-remote-directory"><i class="fa fa-check"></i><b>4.5</b> Pulling Changes from a Remote Directory</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html"><i class="fa fa-check"></i><b>5</b> Cloning a Repository</a>
 <ul>
@@ -237,6 +238,40 @@ see your changes:</p>
 <p>You’ll be taken to another page, which shows you the differences between your
 old version and the new one:</p>
 <p><img src="img/github_vdiff.png" /></p>
+</div>
+<div id="pulling-changes-from-a-remote-directory" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Pulling Changes from a Remote Directory</h2>
+<p>Before moving on, it’s also worth noting that we can pull changes directly from
+GitHub. If a file has been altered on the remote version of a project, GitHub
+offers functionality for syncing that file with your local copy (or creating a
+new file altogether, if need be).</p>
+<p>For example, if you return to the main page of “my_first_remote_directory”, you
+can alter the README directly on GitHub. Click the pencil in the right-hand
+corner of the rendered file.</p>
+<p><img src="img/new_repository_pencil_highlight.png" /></p>
+<p>This will open up a text editor interface. Using it, add “What’s yours?” on the
+fifth line of the document. The complete document should look like this:</p>
+<pre><code>Hello world!
+
+My name is &lt;your name&gt;
+
+What&#39;s yours?</code></pre>
+<p>Scroll to the bottom and click the green “Commit changes” button. This is the
+equivalent of doing <code>git add &lt;file&gt;</code> and <code>git commit -m &lt;message&gt;</code> on the
+command line.</p>
+<p>You’ll see something like the following:</p>
+<p><img src="img/updated_readme.png" /></p>
+<p>Back on the command line, if you type <code>git status</code>, you’ll see that your local
+repository is now out of sync.</p>
+<p><img src="img/branch_behind.png" /></p>
+<p>If you haven’t made any changes to your directory, syncing it with the remote
+version can be achieved with a straighforward pull command:</p>
+<pre><code>git pull</code></pre>
+<p>Once you enter this command, your command line should look something like this:</p>
+<p><img src="img/git_pull.png" /></p>
+<p>Your files are now synced. A later portion of this reader will discuss how to
+handle this process when you <em>have</em> made changes to your directory between the
+time the remote was altered and the time you go to make a pull.</p>
 
 </div>
 </div>

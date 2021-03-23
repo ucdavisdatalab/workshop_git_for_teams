@@ -16,6 +16,7 @@ making-a-test-repository
 preparing-to-sync-your-repository
 pushing-a-local-repository
 tracking-files-remotely
+pulling-changes-from-a-remote-directory
 cloning-a-repository
 cloning
 branching
