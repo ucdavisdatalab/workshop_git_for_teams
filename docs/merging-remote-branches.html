@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Reproducible Research for Teams with GitHub</title>
-  <meta name="description" content="Reproducible Research for Teams with GitHub" />
+  <title>7 Merging Remote Branches | Reproducible Research for Teams with GitHub</title>
+  <meta name="description" content="7 Merging Remote Branches | Reproducible Research for Teams with GitHub" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Reproducible Research for Teams with GitHub" />
+  <meta property="og:title" content="7 Merging Remote Branches | Reproducible Research for Teams with GitHub" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ucdavisdatalab/workshop_introduction_to_version_control" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Reproducible Research for Teams with GitHub" />
+  <meta name="twitter:title" content="7 Merging Remote Branches | Reproducible Research for Teams with GitHub" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="opening-issues-and-making-changes.html"/>
 
-<link rel="next" href="preliminaries.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -135,28 +135,85 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Reproducible Research for Teams with GitHub</h1>
-<p class="author"><em>Dr. Tyler Shoemaker</em></p>
-<p class="date"><em>2021-03-23</em></p>
+<div id="merging-remote-branches" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Merging Remote Branches</h1>
+<p>Clicking on the hyperlink will take you directly to the issue you created. From
+here, we’re at a crossroads. We could go ahead and implement our changes on the
+main branch (more about that in a minute) and close out the issue. But there are
+a lot of participants in the workshop, and all those branches will be a headache
+to merge seamlessly into main. What we’ll do, then, is implement our changes on
+only <em>one other</em> remote branch, leaving the main one alone for now.</p>
+<div id="a-quick-change-of-plans" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> A Quick Change of Plans</h2>
+<p>First, on the “branches” page, find another branch with which to merge your own.
+You should select a branch made by another workshop participant.</p>
+<p><img src="img/github_branches_page.png" /></p>
+<p>When you’ve decided on a branch, go to your issue and, in a comment, explain
+your change of plans. Tag the person whose branch you’ll be merging with using
+“@”. Click the green “Comment” button.</p>
+<p><img src="img/github_leave_a_comment.png" /></p>
+<p>In a real-world project, you might also edit the title of your issue, but for
+now, you can leave it as is.</p>
 </div>
-<div id="overview" class="section level1 unnumbered">
-<h1>Overview</h1>
-<p><img src="img/git_branching_and_its_options.png" /></p>
-<p>GitHub is an online platform for software development using Git for version
-control. During this hands-on workshop we’ll practice setting up, sharing, and
-collaboratively working on a repository for a research project. We’ll explore
-different features for improving your workflows, whether you’re working by
-yourself or with others on a data-driven project using GitHub.</p>
+<div id="fetching-a-remote-branch" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Fetching a Remote Branch</h2>
+<p>Now it’s time to <strong>fetch</strong> the remote branch. This will download a copy of the
+branch but it won’t implement any changes that that branch might contain. You
+can find the branch on the command line with <code>git branch -a</code> (it’ll be in red
+text).</p>
+<p>To fetch the branch and begin tracking any future changes that might occur on
+that branch, simply type:</p>
+<pre><code>git switch &lt;remote-branch&gt;</code></pre>
+<p>(Note: in the past, Git has used other commands like <code>fetch</code> and <code>track</code> to
+perform these operations, but the new <code>switch</code> is much easier.)</p>
+<p>You should see something like this:</p>
+<p><img src="img/git_switch_remote.png" /></p>
+<p>And, if you open the README.md file, you’ll find that your name has disappeared
+and the other person’s name is there instead.</p>
+<p><img src="img/remote_readme.png" /></p>
+<p>You should now have <em>three</em> branches on your local machine: the main branch,
+the one you created, and the branch you’ve just fetched from GitHub.</p>
+</div>
+<div id="merging-branches" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Merging Branches</h2>
+<p>From here, we can merge branches as we normally would. Switch to your own branch:</p>
+<pre><code>git checkout &lt;your-branch&gt;</code></pre>
+<p>Now, try merge the other branch into your own:</p>
+<pre><code>git merge &lt;other-branch&gt;</code></pre>
+<p>You should see an error. This is because both you and the other person have put
+your names on the same line.</p>
+<p><img src="img/conflicting_changes.png" /></p>
+<p>If you open README.md with Vim, you’ll see where the problem is:</p>
+<p><img src="img/finding_a_conflict.png" /></p>
+<p>Fix this conflict by deleting the conflict markers (all the <code>&lt;</code>’s, <code>=</code>’s, and
+<code>&gt;</code>’s) and the other person’s changes. Add their name after your own.</p>
+<p><img src="img/resolving_changes.png" /></p>
+<p>Save and quit Vim. Then, add README.md to your staging area and commit your
+changes. Your command line should look something like this when you’re done:</p>
+<p><img src="img/commit_resolved_changes.png" /></p>
+<p>If you type <code>git status</code>, you’ll see that your local repository is now ahead of
+the remote one.</p>
+<p>Go ahead and <code>push</code> your changes. If you go back to GitHub, you should now see
+the modified README file rendered to the page.</p>
+<p><img src="img/github_resolved_changes_rendered.png" /></p>
+</div>
+<div id="closing-an-issue" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Closing an Issue</h2>
+<p>Your task is done, so you can close your issue. Return to the “Issues” tab, find
+your issue, and close it. If you’d like, you can leave a comment when you close,
+but this is a pretty straightforward change, so in this case it’s not necessary.</p>
+<p>The issue should look like this:</p>
+<p><img src="img/closed_issue.png" /></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="opening-issues-and-making-changes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="preliminaries.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -178,7 +235,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/index.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/07_merging-remote-branches.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -186,7 +243,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/index.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/07_merging-remote-branches.Rmd",
 "text": null
 },
 "download": null,
