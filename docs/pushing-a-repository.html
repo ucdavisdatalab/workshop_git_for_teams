@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Pushing a Repository | Reproducible Research for Teams with GitHub</title>
+  <meta name="description" content="4 Pushing a Repository | Reproducible Research for Teams with GitHub" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Pushing a Repository | Reproducible Research for Teams with GitHub" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/" />
+  
+  
+  <meta name="github-repo" content="ucdavisdatalab/workshop_introduction_to_version_control" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Pushing a Repository | Reproducible Research for Teams with GitHub" />
+  
+  
+  
+
+<meta name="author" content="Dr. Tyler Shoemaker" />
+
+
+<meta name="date" content="2021-03-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ssh-keys-and-github.html"/>
+<link rel="next" href="cloning-a-repository.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://datalab.ucdavis.edu/">
+  <img src="img/datalab-logo-full-color-rgb.png" style="height: 100%; width: 100%; object-fit: contain" />
+</a></li>
+<li><a href="./">Reproducible Research for Teams with GitHub</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i><b>1</b> Preliminaries</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="preliminaries.html"><a href="preliminaries.html#interactive-session-information"><i class="fa fa-check"></i><b>1.1</b> Interactive Session Information</a></li>
+<li class="chapter" data-level="1.2" data-path="preliminaries.html"><a href="preliminaries.html#about-this-tutorial"><i class="fa fa-check"></i><b>1.2</b> About this Tutorial</a></li>
+<li class="chapter" data-level="1.3" data-path="preliminaries.html"><a href="preliminaries.html#objectives-for-this-workshop"><i class="fa fa-check"></i><b>1.3</b> Objectives for this Workshop</a></li>
+<li class="chapter" data-level="1.4" data-path="preliminaries.html"><a href="preliminaries.html#prerequisites"><i class="fa fa-check"></i><b>1.4</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="setting-up-a-github-account.html"><a href="setting-up-a-github-account.html"><i class="fa fa-check"></i><b>2</b> Setting up a GitHub Account</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="setting-up-a-github-account.html"><a href="setting-up-a-github-account.html#about-github"><i class="fa fa-check"></i><b>2.1</b> About GitHub</a></li>
+<li class="chapter" data-level="2.2" data-path="setting-up-a-github-account.html"><a href="setting-up-a-github-account.html#basic-github-account-setup"><i class="fa fa-check"></i><b>2.2</b> Basic GitHub Account Setup</a></li>
+<li class="chapter" data-level="2.3" data-path="setting-up-a-github-account.html"><a href="setting-up-a-github-account.html#github-desktop-or-the-command-line"><i class="fa fa-check"></i><b>2.3</b> GitHub Desktop, or the Command Line?</a></li>
+<li class="chapter" data-level="2.4" data-path="setting-up-a-github-account.html"><a href="setting-up-a-github-account.html#locally-setting-up-your-account-credentials"><i class="fa fa-check"></i><b>2.4</b> Locally Setting Up Your Account Credentials</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ssh-keys-and-github.html"><a href="ssh-keys-and-github.html"><i class="fa fa-check"></i><b>3</b> SSH Keys and GitHub</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ssh-keys-and-github.html"><a href="ssh-keys-and-github.html#ssh-keys-a-short-primer"><i class="fa fa-check"></i><b>3.1</b> SSH Keys: A Short Primer</a></li>
+<li class="chapter" data-level="3.2" data-path="ssh-keys-and-github.html"><a href="ssh-keys-and-github.html#connecting-to-github-with-ssh"><i class="fa fa-check"></i><b>3.2</b> Connecting to GitHub with SSH</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html"><i class="fa fa-check"></i><b>4</b> Pushing a Repository</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#making-a-test-repository"><i class="fa fa-check"></i><b>4.1</b> Making a Test Repository</a></li>
+<li class="chapter" data-level="4.2" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#preparing-to-sync-your-repository"><i class="fa fa-check"></i><b>4.2</b> Preparing to Sync Your Repository</a></li>
+<li class="chapter" data-level="4.3" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pushing-a-local-repository"><i class="fa fa-check"></i><b>4.3</b> Pushing a Local Repository</a></li>
+<li class="chapter" data-level="4.4" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#tracking-files-remotely"><i class="fa fa-check"></i><b>4.4</b> Tracking Files Remotely</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html"><i class="fa fa-check"></i><b>5</b> Cloning a Repository</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reproducible Research for Teams with GitHub</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="pushing-a-repository" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Pushing a Repository</h1>
+<p>Now that you’re able to use SSH keys with GitHub, it’s time to sync the website
+with a local repository on your computer.</p>
+<div id="making-a-test-repository" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Making a Test Repository</h2>
+<p>First, use the command line to make a new directory in your Home folder:</p>
+<pre><code>mkdir ~/my_first_remote_directory</code></pre>
+<p>Put this directory under version control with Git:</p>
+<pre><code>cd ~/my_first_remote_directory
+git init</code></pre>
+<p>With vim, make a README markdown file:</p>
+<pre><code>vim README.md</code></pre>
+<p>Write and save “Hello world!” in the file. You should see something like the
+following:</p>
+<p><img src="img/hello_world.png" /></p>
+<p>Exit vim. Then, add README.md to Git and commit your changes. Don’t forget to
+write a short note in the commit message.</p>
+<pre><code>git add README.md
+git commit -m &#39;Add a README file&#39;</code></pre>
+<p>You should see the following:</p>
+<p><img src="img/commit_readme.png" /></p>
+</div>
+<div id="preparing-to-sync-your-repository" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Preparing to Sync Your Repository</h2>
+<p>So far so good! All we’ve done is repeat the normal workflow for putting files
+under version control. But now we need to step away from the command line for
+a moment and prepare a space for receiving this repository on GitHub.</p>
+<p>To do so, go to github.com and, on your homepage, click the “Create repository”
+button. You’ll be taken to this page:</p>
+<p><img src="img/new_repository.png" /></p>
+<p>There are a few things of note here:</p>
+<ul>
+<li>Repository name:</li>
+<li>Description:</li>
+<li>Public/private setting:</li>
+<li>Initialize with details, including:
+<ul>
+<li>A README file</li>
+<li>A .gitignore file</li>
+<li>A license</li>
+</ul></li>
+</ul>
+<p>Because we’re initializing this repository from an existing directory, we won’t
+bother with the extra details. But we do need a title, which should be the same
+as what’s on your local computer (“my_first_remote_directory”). A description is
+helpful but not necessary for our purposes. Finally, we will choose to make this
+a public repository (meaning anyone can see it).</p>
+<p><img src="img/new_repository_details.png" /></p>
+</div>
+<div id="pushing-a-local-repository" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Pushing a Local Repository</h2>
+<p>Once you’ve entered the above information, click “Create repository.” GitHub
+will take you to a new screen, which gives you a number of options for making or
+uploading new files to the repository.</p>
+<p><img src="img/new_repository_options.png" /></p>
+<p>Since we already have a repository made, we’ll choose “Push an existing
+repository from the command line.” Pushing our repository is as easy as
+sequentially entering into the command line the three commands GitHub provides.</p>
+<pre><code>git remote add origin git@github.com:&lt;your user account&gt;/my_first_remote_directory.git
+git branch -M main
+git push -u origin</code></pre>
+<p>On the command line, that looks like this:</p>
+<p><img src="img/push_repository_command_line.png" /></p>
+<p>[NOTE A FEW THINGS WE’VE DONE IN THE ABOVE]</p>
+<p>The GitHub site won’t immediately refresh itself once you’ve entered the above
+commands, but if you click on the “&lt; &gt; Code” tab or on the name of the directory,
+you’ll see that the repository has been synced and your README.md file is now
+online.</p>
+<p><img src="img/new_repository_synced.png" /></p>
+</div>
+<div id="tracking-files-remotely" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Tracking Files Remotely</h2>
+<p>With this repository made, GitHub can start tracking changes you make to your
+files, much as Git does locally. The process works exactly like the one you
+do for Git, though it requires one more step.</p>
+<p>First, we’ll alter our README.md. Reopen the file with vim, skip a line down
+from the line you’ve already written, and add “My name is <your name>.” Save and
+quit.</p>
+<p><img src="img/hello_world_changed.png" /></p>
+<p>Then, add the file and commit your changes.</p>
+<p><img src="img/commit_readme_update.png" /></p>
+<p>If you want to push these changes to your remote repository, simply type the
+following in the command line:</p>
+<pre><code>git push</code></pre>
+<p>You’ll see a similar message appear about enumerating, counting, and writing
+objects to GitHub. Afterwards, if you refresh your file on GitHub, you should
+see your changes:</p>
+<p><img src="img/new_repository_synced_updated.png" /></p>
+<p>Note that your commit message appears here as well:</p>
+<p><img src="img/new_repository_synced_message_highlight.png" /></p>
+<p>If you click the commit tag:</p>
+<p><img src="img/new_repository_synced_commit_tag.png" /></p>
+<p>You’ll be taken to another page, which shows you the differences between your
+old version and the new one:</p>
+<p><img src="img/github_vdiff.png" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ssh-keys-and-github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cloning-a-repository.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ucdavisdatalab/workshop_introduction_to_version_control/edit/main/04_pushing_a_repository.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ucdavisdatalab/workshop_introduction_to_version_control/blob/main/04_pushing_a_repository.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
