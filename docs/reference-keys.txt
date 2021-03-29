@@ -5,7 +5,8 @@ objectives-for-this-workshop
 prerequisites
 about-github
 the-basics
-communicating-with-github
+communicating-through-github
+what-should-i-push-to-github
 setting-up-a-github-account
 basic-github-account-setup
 github-desktop-or-the-command-line
