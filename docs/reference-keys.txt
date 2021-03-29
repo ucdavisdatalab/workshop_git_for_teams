@@ -3,13 +3,12 @@ interactive-session-information
 about-this-tutorial
 objectives-for-this-workshop
 prerequisites
-setting-up-a-github-account
 about-github
+setting-up-a-github-account
 basic-github-account-setup
 github-desktop-or-the-command-line
-locally-setting-up-your-account-credentials
+locally-setting-up-your-git-credentials
 ssh-keys-and-github
-ssh-keys-a-short-primer
 connecting-to-github-with-ssh
 pushing-a-repository
 making-a-test-repository
