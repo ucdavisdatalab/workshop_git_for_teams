@@ -4,6 +4,8 @@ about-this-tutorial
 objectives-for-this-workshop
 prerequisites
 about-github
+the-basics
+communicating-with-github
 setting-up-a-github-account
 basic-github-account-setup
 github-desktop-or-the-command-line
