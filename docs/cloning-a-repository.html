@@ -24,7 +24,7 @@
 <meta name="author" content="Dr. Tyler Shoemaker" />
 
 
-<meta name="date" content="2021-03-29" />
+<meta name="date" content="2021-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -146,11 +146,11 @@
 <div id="cloning-a-repository" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Cloning a Repository</h1>
 <p>While tracking your own files remotely with GitHub is great for managing and
-storing your files, the service is above all a communication channel, in which
-people can share and discuss the code/files they’re working on. We haven’t yet
-taken advantage of much of what makes GitHub useful: getting files for a project,
-modifying them, discussing changes with team members, and implementing those
-changes.</p>
+storing your files, this doesn’t quite tap into the full use of the service.
+Remember, GitHub is above all a communication channel, in which people can share
+and discuss the code/files they’re working on. We haven’t yet taken advantage of
+much of what makes GitHub useful: getting files for a project, modifying them,
+discussing the changes with team members, and implementing those changes.</p>
 <div id="cloning" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Cloning</h2>
 <p>To start using GitHub collaboratively, we need to retrieve, or <strong>clone</strong>, a
@@ -161,11 +161,10 @@ command line speak, the repository will be a “child” of Home).</p>
 <p>Then, go to the following link: <a href="https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox">https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox</a></p>
 <p>Once there, click on the green “Code” button, which should show the following:</p>
 <p><img src="img/clone_repository_github_view.png" /></p>
-<p>Select the “SSH” option (you could also retrieve this repository with GitHub
-Desktop or download it as a .zip file). Copy the text GitHub provides to your
-clipboard.</p>
-<p>In the command line, type <code>git clone</code>, add a space, and then paste in the above
-text. The full line should look like this:</p>
+<p>Since you have SSH keys, select the “SSH” option. Copy the text GitHub provides
+to your clipboard. Then, in the command line, type <code>git clone</code>, add a space,
+and paste in the line of text GitHub generated for you. The full command should
+look like this:</p>
 <pre><code>git clone git@github.com:ucdavisdatalab/workshop_git_for_teams_sandbox.git</code></pre>
 <p>Hit “Enter”. If you’d like, you can use <code>ls</code> to see the newly made directory.
 You should see something like the following:</p>
@@ -182,10 +181,13 @@ changes your team members may be making. This is where branching steps in.
 Version control systems like Git help you avoid major change conflicts (and thus
 lost or redundant work) by letting you “branch” a repository to complete tasks
 in parallel with others working on the project. Usually, teams will have a stable,
-“Main” branch, which serves as an enduring reference point for
-subsequent modifications. [MORE]</p>
-<p>Given all this, we need to branch the repository we’ve just cloned. We’ll do
-so locally and then we’ll push that branch to the remote repository.</p>
+“Main” branch, which serves as an enduring reference point for subsequent
+modifications. When people want to make changes to that stable code, they’ll
+make a new copy of the main branch, implement their changes, and then commit
+their changes back the main one.</p>
+<p>In a moment, we’ll see how GitHub helps us manage the above process. First,
+however, we’ll need to branch the repository we’ve just cloned. We’ll do so
+locally and then we’ll push that branch to the remote repository.</p>
 <p>First, check whether the cloned repository has any branches with <code>git branch</code>:</p>
 <p><img src="img/check_branches.png" /></p>
 <p>Just “main” so far. Let’s make a new one. Recall that you can make and switch to

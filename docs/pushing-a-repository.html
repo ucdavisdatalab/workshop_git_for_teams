@@ -24,7 +24,7 @@
 <meta name="author" content="Dr. Tyler Shoemaker" />
 
 
-<meta name="date" content="2021-03-29" />
+<meta name="date" content="2021-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -200,7 +200,7 @@ anyone can see it).</p>
 will take you to a new screen, which gives you a number of options for making or
 uploading new files to the repository.</p>
 <p><img src="img/new_repository_options.png" /></p>
-<p>Since we already have a repository made, we’ll choose “Push an existing
+<p>Since we already have a repository made, we need to use the “Push an existing
 repository from the command line.” Pushing our repository is as easy as
 sequentially entering into the command line the three commands GitHub provides.</p>
 <pre><code>git remote add origin git@github.com:&lt;your user account&gt;/my_first_remote_directory.git
@@ -208,11 +208,20 @@ git branch -M main
 git push -u origin</code></pre>
 <p>On the command line, that looks like this:</p>
 <p><img src="img/push_repository_command_line.png" /></p>
-<p>[NOTE A FEW THINGS WE’VE DONE IN THE ABOVE]</p>
-<p>The GitHub site won’t immediately refresh itself once you’ve entered the above
-commands, but if you click on the “&lt; &gt; Code” tab or on the name of the directory,
-you’ll see that the repository has been synced and your README.md file is now
-online.</p>
+<p>To summarize the above, we’ve done the following:</p>
+<ol style="list-style-type: decimal">
+<li>Associated GitHub’s remote repository with our local repository (<code>git remote</code> etc.)</li>
+<li>Made a new branch in our local repository called “main” (<code>git branch -M main</code>)</li>
+<li>Pushed the contents of main (from <code>origin</code>) to a new, corresponding remote branch on GitHub</li>
+</ol>
+<p>From here on out, when you want to update the remote repository with further
+changes, you can simply use the shorthand <code>git push</code> after the usual save, add,
+commit steps. Importantly, Git will only update the branch you’re on when you
+enter <code>git push</code>, so before making any pushes, it’s a good idea to run a quick
+<code>git status</code> command to make sure you’re on the branch you want to be on.</p>
+<p>When you make your changes, the GitHub site won’t immediately refresh itself,
+but if you click on the “&lt; &gt; Code” tab or on the name of the directory, you’ll
+see that the repository has been synced and your README.md file is now online.</p>
 <p><img src="img/new_repository_synced.png" /></p>
 <p>Note that GitHub automatically looks for a README file in your repository. If it
 finds one that contains renderable <a href="https://guides.github.com/features/mastering-markdown/">markdown</a> code, it will
@@ -231,10 +240,8 @@ quit.</p>
 <p><img src="img/hello_world_changed.png" /></p>
 <p>Then, add the file and commit your changes.</p>
 <p><img src="img/commit_readme_update.png" /></p>
-<p>If you want to push these changes to your remote repository, simply type the
-following in the command line:</p>
-<pre><code>git push</code></pre>
-<p>You’ll see a similar message appear about enumerating, counting, and writing
+<p>If you want to push these changes to your remote repository, simply enter <code>git push</code>.
+You’ll see a similar message appear about enumerating, counting, and writing
 objects to GitHub. Afterwards, if you refresh your file on GitHub, you should
 see your changes:</p>
 <p><img src="img/new_repository_synced_updated.png" /></p>

@@ -24,7 +24,7 @@
 <meta name="author" content="Dr. Tyler Shoemaker" />
 
 
-<meta name="date" content="2021-03-29" />
+<meta name="date" content="2021-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -160,20 +160,19 @@ You should select a branch made by another workshop participant.</p>
 your change of plans. Tag the person whose branch you’ll be merging with using
 “@”. Click the green “Comment” button.</p>
 <p><img src="img/github_leave_a_comment.png" /></p>
-<p>In a real-world project, you might also edit the title of your issue, but for
-now, you can leave it as is.</p>
+<p>In a real-world project, you might also edit the title of your issue to reflect
+your changes, but for now, you can leave it as is.</p>
 </div>
 <div id="fetching-a-remote-branch" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Fetching a Remote Branch</h2>
-<p>Now it’s time to <strong>fetch</strong> the remote branch. This will download a copy of the
-branch but it won’t implement any changes that that branch might contain. You
+<p>Now it’s time to make a copy of the remote branch on your local computer. You
 can find the branch on the command line with <code>git branch -a</code> (it’ll be in red
-text).</p>
-<p>To fetch the branch and begin tracking any future changes that might occur on
-that branch, simply type:</p>
+text). To get the branch and begin tracking any future changes that might occur
+on that branch, simply type:</p>
 <pre><code>git switch &lt;remote-branch&gt;</code></pre>
 <p>(Note: in the past, Git has used other commands like <code>fetch</code> and <code>track</code> to
-perform these operations, but the new <code>switch</code> is much easier.)</p>
+perform these operations, but <code>switch</code> is a nice shorthand, especially for
+smaller projects like this.)</p>
 <p>You should see something like this:</p>
 <p><img src="img/git_switch_remote.png" /></p>
 <p>And, if you open the README.md file, you’ll find that your name has disappeared
@@ -208,9 +207,8 @@ the modified README file rendered to the page.</p>
 <div id="closing-an-issue" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Closing an Issue</h2>
 <p>Your task is done, so you can close your issue. Return to the “Issues” tab, find
-your issue, and close it. If you’d like, you can leave a comment when you close,
-but this is a pretty straightforward change, so in this case it’s not necessary.</p>
-<p>The issue should look like this:</p>
+your issue, and close it. If you’d like, you can leave a comment when you close.
+Afterwards, the issue should look like this:</p>
 <p><img src="img/closed_issue.png" /></p>
 
 </div>
