@@ -24,7 +24,7 @@
 <meta name="author" content="Dr. Tyler Shoemaker" />
 
 
-<meta name="date" content="2021-04-05" />
+<meta name="date" content="2021-04-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -229,6 +229,20 @@ below and follow the step-by-step instructions there to get yourself set up
 with a key. <strong>We will not go through this process during the workshop, so you </strong>
 <strong>must complete it before the session.</strong></p>
 <p><a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">Connecting to GitHub with SSH</a></p>
+<p>The following steps at the link above are required:</p>
+<ul>
+<li>Checking for existing SSH keys</li>
+<li>Generating a new SSH key and adding it to the ssh-agent</li>
+<li>Adding a new SSH key to your GitHub account</li>
+<li>Testing your SSH connection</li>
+</ul>
+<p>Once you have completed these steps, be sure you can successfully run the
+following command:</p>
+<pre><code>ssh -T git@github.com</code></pre>
+<p>If your connection is successful, you will see this message (a warning may first
+appear—see the documentation on GitHub for more information):</p>
+<pre><code>Hi &lt;your username&gt;! You&#39;ve successfully authenticated, but GitHub does not 
+provide shell access.</code></pre>
 <p>Need help? DataLab offers office hours sessions on Mondays, from 1:30-3:00pm
 PST. Check the calender for more information <a href="https://datalab.ucdavis.edu/eventscalendar/">here</a>.</p>
 
