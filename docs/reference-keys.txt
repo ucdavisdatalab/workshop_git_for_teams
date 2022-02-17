@@ -19,6 +19,7 @@ preparing-to-sync-your-repository
 pushing-a-local-repository
 tracking-files-remotely
 pulling-changes-from-a-remote-directory
+gitignore
 cloning-a-repository
 cloning
 branching
