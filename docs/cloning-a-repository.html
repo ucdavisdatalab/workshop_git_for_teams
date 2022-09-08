@@ -25,7 +25,7 @@
 <meta name="author" content="Dr. Carl Stahmer" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -105,7 +105,7 @@
 <li class="chapter" data-level="4.3" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pushing-a-local-repository"><i class="fa fa-check"></i><b>4.3</b> Pushing a Local Repository</a></li>
 <li class="chapter" data-level="4.4" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#tracking-files-remotely"><i class="fa fa-check"></i><b>4.4</b> Tracking Files Remotely</a></li>
 <li class="chapter" data-level="4.5" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pulling-changes-from-a-remote-directory"><i class="fa fa-check"></i><b>4.5</b> Pulling Changes from a Remote Directory</a></li>
-<li class="chapter" data-level="4.6" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#gitignore"><i class="fa fa-check"></i><b>4.6</b> .gitignore</a></li>
+<li class="chapter" data-level="4.6" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#keeping-certain-files-untracked"><i class="fa fa-check"></i><b>4.6</b> Keeping Certain Files Untracked</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html"><i class="fa fa-check"></i><b>5</b> Cloning a Repository</a>
 <ul>
@@ -150,59 +150,81 @@
             <section class="normal" id="section-">
 <div id="cloning-a-repository" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Cloning a Repository</h1>
-<p>While tracking your own files remotely with GitHub is great for managing and
-storing your files, this doesn’t quite tap into the full use of the service.
-Remember, GitHub is above all a communication channel, in which people can share
-and discuss the code/files they’re working on. We haven’t yet taken advantage of
-much of what makes GitHub useful: getting files for a project, modifying them,
-discussing the changes with team members, and implementing those changes.</p>
+<p>While tracking your own files remotely with GitHub is great for managing
+and storing your files, this doesn’t quite tap into the full use of the
+service. Remember, GitHub is above all a communication channel, in which
+people can share and discuss the code/files they’re working on. We
+haven’t yet taken advantage of much of what makes GitHub useful: getting
+files for a project, modifying them, discussing the changes with team
+members, and implementing those changes.</p>
 <div id="cloning" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Cloning</h2>
-<p>To start using GitHub collaboratively, we need to retrieve, or <strong>clone</strong>, a
-repository. This will create a local copy of project files.</p>
-<p>First, go back to your Home directory. You’ll be putting a repository here (in
-command line speak, the repository will be a “child” of Home).</p>
-<pre><code>cd ~</code></pre>
-<p>Then, go to the following link: <a href="https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox">https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox</a></p>
-<p>Once there, click on the green “Code” button, which should show the following:</p>
+<p>To start using GitHub collaboratively, we need to retrieve, or
+<strong>clone</strong>, a repository. This will create a local copy of project files.</p>
+<p>First, go back to your Home directory. You’ll be putting a repository
+here (in command line speak, the repository will be a “child” of Home).</p>
+<pre><code>$ cd ~</code></pre>
+<p>Now go to the following link:
+<a href="https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox" class="uri">https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox</a></p>
+<p>Once there, click on the green “Code” button, which should show the
+following:</p>
 <p><img src="img/clone_repository_github_view.png" /></p>
-<p>Since you have SSH keys, select the “SSH” option. Copy the text GitHub provides
-to your clipboard. Then, in the command line, type <code>git clone</code>, add a space,
-and paste in the line of text GitHub generated for you. The full command should
-look like this:</p>
-<pre><code>git clone git@github.com:ucdavis-datalab-training/workshop_git_for_teams_sandbox.git</code></pre>
-<p>Hit “Enter”. If you’d like, you can use <code>ls</code> to see the newly made directory.
-You should see something like the following:</p>
-<p><img src="img/clone_repository_command_line_view.png" /></p>
-<p>If you <code>cd</code> into the directory and then type <code>ls -a</code>, you’ll see a README.md
-file and a .git file, which contains all the logging info for the repository.</p>
-<p><img src="img/clone_repository_lsa.png" /></p>
+<p>Since you have SSH keys, select the “SSH” option. Copy the text GitHub
+provides to your clipboard. Then, in the command line, type <code>git clone</code>,
+add a space, and paste in the line of text GitHub generated for you.
+Press Enter when you’ve entered this information. The full command
+should look like this:</p>
+<pre><code>$ git clone git@github.com:ucdavis-datalab-training/workshop_git_for_teams_sandbox.git
+Cloning into &#39;workshop_git_for_teams_sandbox&#39;...
+remote: Enumerating objects: 63, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 63 (delta 5), reused 3 (delta 3), pack-reused 57
+Receiving objects: 100% (63/63), 8.00 KiB | 4.00 MiB/s, done.
+Resolving deltas: 100% (18/18), done.</code></pre>
+<p>If you’d like, you can use <code>ls</code> to see the newly made directory. You
+should see something like the following:</p>
+<pre><code>$ ls
+Desktop                     Music
+Documents                   Pictures                      
+Downloads                   Public    
+Library                     workshop_git_for_teams_sandbox
+Movies   </code></pre>
+<p>If you <code>cd</code> into the directory and then type <code>ls -a</code>, you’ll see a
+<code>README.md</code> file and a <code>.git</code> file, which contains all the logging info
+for the repository.</p>
+<pre><code>$ cd workshop_git_for_teams_sandbox 
+$ ls -a
+.          ..         .git       .gitignore README.md</code></pre>
 </div>
 <div id="branching" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Branching</h2>
-<p>From here, you can start making and tracking changes. But if you’re working with
-a team, you need to be sure that the changes you make don’t conflict with
-changes your team members may be making. This is where branching steps in.
-Version control systems like Git help you avoid major change conflicts (and thus
-lost or redundant work) by letting you “branch” a repository to complete tasks
-in parallel with others working on the project. Usually, teams will have a stable,
-“Main” branch, which serves as an enduring reference point for subsequent
-modifications. When people want to make changes to that stable code, they’ll
-make a new copy of the main branch, implement their changes, and then commit
-their changes back the main one.</p>
-<p>In a moment, we’ll see how GitHub helps us manage the above process. First,
-however, we’ll need to branch the repository we’ve just cloned. We’ll do so
-locally and then we’ll push that branch to the remote repository.</p>
-<p>First, check whether the cloned repository has any branches with <code>git branch</code>:</p>
-<p><img src="img/check_branches.png" /></p>
-<p>Just “main” so far. Let’s make a new one. Recall that you can make and switch to
-a new branch with one command:</p>
+<p>From here, you can start making and tracking changes. But if you’re
+working with a team, you need to be sure that the changes you make don’t
+conflict with changes your team members may be making. This is where
+branching steps in. Version control systems like Git help you avoid
+major change conflicts (and thus lost or redundant work) by letting you
+“branch” a repository to complete tasks in parallel with others working
+on the project. Usually, teams will have a stable, “Main” branch, which
+serves as an enduring reference point for subsequent modifications. When
+people want to make changes to that stable code, they’ll make a new copy
+of the main branch, implement their changes, and then commit their
+changes back the main one.</p>
+<p>In a moment, we’ll see how GitHub helps us manage the above process.
+First, however, we’ll need to branch the repository we’ve just cloned.
+We’ll do so locally and then we’ll push that branch to the remote
+repository.</p>
+<p>First, check whether the cloned repository has any branches with
+<code>git branch</code>:</p>
+<pre><code>$ git branch
+* main</code></pre>
+<p>Just “main” so far. Let’s make a new one. Recall that you can make and
+switch to a new branch with one command:</p>
 <pre><code>git checkout -b &lt;branch-name&gt;</code></pre>
-<p>Use this command to branch from the main. Name your branch with your first name
-and the first initial of your last name.</p>
-<pre><code>git checkout -b &lt;firstname_lastinitial&gt;</code></pre>
-<p>You should see something like the following:</p>
-<p><img src="img/new_branch.png" /></p>
+<p>Use this command to branch from the main one. Name your branch with your
+first name and the first initial of your last name.</p>
+<pre><code>$ git checkout -b &lt;first-name_last-initial&gt;
+Switched to a new branch &#39;&lt;first-name_last-initial&gt;&#39;</code></pre>
 
 </div>
 </div>

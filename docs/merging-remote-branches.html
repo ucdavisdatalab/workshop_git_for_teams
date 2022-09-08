@@ -25,7 +25,7 @@
 <meta name="author" content="Dr. Carl Stahmer" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -105,7 +105,7 @@
 <li class="chapter" data-level="4.3" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pushing-a-local-repository"><i class="fa fa-check"></i><b>4.3</b> Pushing a Local Repository</a></li>
 <li class="chapter" data-level="4.4" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#tracking-files-remotely"><i class="fa fa-check"></i><b>4.4</b> Tracking Files Remotely</a></li>
 <li class="chapter" data-level="4.5" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pulling-changes-from-a-remote-directory"><i class="fa fa-check"></i><b>4.5</b> Pulling Changes from a Remote Directory</a></li>
-<li class="chapter" data-level="4.6" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#gitignore"><i class="fa fa-check"></i><b>4.6</b> .gitignore</a></li>
+<li class="chapter" data-level="4.6" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#keeping-certain-files-untracked"><i class="fa fa-check"></i><b>4.6</b> Keeping Certain Files Untracked</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html"><i class="fa fa-check"></i><b>5</b> Cloning a Repository</a>
 <ul>
@@ -174,37 +174,78 @@ your changes, but for now, you can leave it as is.</p>
 can find the branch on the command line with <code>git branch -a</code> (it’ll be in red
 text). To get the branch and begin tracking any future changes that might occur
 on that branch, simply type:</p>
-<pre><code>git switch &lt;remote-branch&gt;</code></pre>
+<pre><code>$ git switch &lt;remote-branch&gt;
+Branch &#39;&lt;remote-branch&gt;&#39; set up to track remote branch &#39;&lt;remote-branch&gt;&#39; from &#39;origin&#39;.
+Switched to a new branch &#39;&lt;remote-branch&gt;&#39;</code></pre>
 <p>(Note: in the past, Git has used other commands like <code>fetch</code> and <code>track</code> to
 perform these operations, but <code>switch</code> is a nice shorthand, especially for
 smaller projects like this.)</p>
-<p>You should see something like this:</p>
-<p><img src="img/git_switch_remote.png" /></p>
-<p>And, if you open the README.md file, you’ll find that your name has disappeared
-and the other person’s name is there instead.</p>
-<p><img src="img/remote_readme.png" /></p>
-<p>You should now have <em>three</em> branches on your local machine: the main branch,
-the one you created, and the branch you’ve just fetched from GitHub.</p>
+<p>If you open the README.md file, you’ll find that your name has disappeared and
+the other person’s name is there instead. With that, you should now have <em>three</em>
+branches on your local machine: the main branch, the one you created, and the
+branch you’ve just fetched from GitHub.</p>
 </div>
 <div id="merging-branches" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Merging Branches</h2>
 <p>From here, we can merge branches as we normally would. Switch to your own branch:</p>
-<pre><code>git checkout &lt;your-branch&gt;</code></pre>
-<p>Now, try merge the other branch into your own:</p>
-<pre><code>git merge &lt;other-branch&gt;</code></pre>
-<p>You should see an error. This is because both you and the other person have put
-your names on the same line.</p>
-<p><img src="img/conflicting_changes.png" /></p>
-<p>If you open README.md with Vim, you’ll see where the problem is:</p>
-<p><img src="img/finding_a_conflict.png" /></p>
-<p>Fix this conflict by deleting the conflict markers (all the <code>&lt;</code>’s, <code>=</code>’s, and
-<code>&gt;</code>’s) and the other person’s changes. Add their name after your own.</p>
-<p><img src="img/resolving_changes.png" /></p>
-<p>Save and quit Vim. Then, add README.md to your staging area and commit your
+<pre><code>$ git checkout &lt;first-name_last-initial&gt;
+Switched to branch &#39;&lt;first-name_last-initial&gt;&#39;
+Your branch is up to date with &#39;origin/&lt;first-name_last-initial&gt;&#39;.</code></pre>
+<p>Now, try merge the other branch into your own. You should see an error.</p>
+<pre><code>$ git merge &lt;other-branch&gt;
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<p>This is because both you and the other person have put your names on the same line.
+If you open <code>README.md</code> with Vim, or simply <code>cat</code> to screen, you’ll see where the
+problem is:</p>
+<pre><code>$ cat README.md
+Practice Repository: Reproducible Research for Teams with GitHub
+================================================================
+
+Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
+
+Instructions:
+-------------
+
+Clone this repository, make a new branch named with your first name and last initial 
+(e.g. `first-name_last-initial`) and write your name below.
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Name: &lt;your name&gt;
+
+=======
+Name: &lt;other person&#39;s name&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; &lt;other-branch&gt;</code></pre>
+<p>Fix this conflict by deleting the conflict markers (everything between the
+<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> marks) and the other person’s changes. Add their name
+after your own. The file should now look like this:</p>
+<pre><code>$ cat README.md
+Practice Repository: Reproducible Research for Teams with GitHub
+================================================================
+
+Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
+
+Instructions:
+-------------
+
+Clone this repository, make a new branch named with your first name and last initial 
+(e.g. `first-name_last-initial`) and write your name below.
+
+Name: &lt;your name&gt;, &lt;other person&#39;s name&gt;</code></pre>
+<p>Save and quit Vim. Then, add <code>README.md</code> to your staging area and commit your
 changes. Your command line should look something like this when you’re done:</p>
-<p><img src="img/commit_resolved_changes.png" /></p>
+<pre><code>$ git add README.md
+$ git commit -m &quot;resolve conflicts with &lt;other person&#39;s&gt; branch&quot;
+[&lt;first-name_last-initial&gt; 1d00b8f] resolve conflicts with &lt;other person&#39;s&gt; branch</code></pre>
 <p>If you type <code>git status</code>, you’ll see that your local repository is now ahead of
 the remote one.</p>
+<pre><code>$ git status
+On branch &lt;first-name_last-initial&gt;
+Your branch is ahead of &#39;origin/&lt;first-name_last-initial&gt;&#39; by 1 commit.
+  (use &quot;git push&quot; to publish your local commits)
+
+nothing to commit, working tree clean</code></pre>
 <p>Go ahead and <code>push</code> your changes. If you go back to GitHub, you should now see
 the modified README file rendered to the page.</p>
 <p><img src="img/github_resolved_changes_rendered.png" /></p>

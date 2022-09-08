@@ -25,7 +25,7 @@
 <meta name="author" content="Dr. Carl Stahmer" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -105,7 +105,7 @@
 <li class="chapter" data-level="4.3" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pushing-a-local-repository"><i class="fa fa-check"></i><b>4.3</b> Pushing a Local Repository</a></li>
 <li class="chapter" data-level="4.4" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#tracking-files-remotely"><i class="fa fa-check"></i><b>4.4</b> Tracking Files Remotely</a></li>
 <li class="chapter" data-level="4.5" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pulling-changes-from-a-remote-directory"><i class="fa fa-check"></i><b>4.5</b> Pulling Changes from a Remote Directory</a></li>
-<li class="chapter" data-level="4.6" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#gitignore"><i class="fa fa-check"></i><b>4.6</b> .gitignore</a></li>
+<li class="chapter" data-level="4.6" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#keeping-certain-files-untracked"><i class="fa fa-check"></i><b>4.6</b> Keeping Certain Files Untracked</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html"><i class="fa fa-check"></i><b>5</b> Cloning a Repository</a>
 <ul>
@@ -171,8 +171,10 @@ team member can then work on. Examples might include:</p>
 <li>A title: a brief summary of the task, bug, or request</li>
 <li>A description: space for additional information about the task, bug, or request</li>
 <li>Assignees: information about which team member is working on the issue</li>
-<li>Labels: projects might ask team members to specify an issue type with a tag (e.g. “bug”, “enhancement”)</li>
-<li>Milestones: teams can set larger goals for a project, of which a given issue might be a part</li>
+<li>Labels: projects might ask team members to specify an issue type with a tag
+(e.g. “bug”, “enhancement”)</li>
+<li>Milestones: teams can set larger goals for a project, of which a given issue
+might be a part</li>
 <li>Comments: space where team members can discuss issues</li>
 </ul>
 <p>Typically, a team member will <strong>open</strong> an issue, enter the above information,
@@ -184,45 +186,72 @@ task has been completed.</p>
 <div id="opening-an-issue" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Opening an Issue</h2>
 <p>Before we make any changes to our cloned repository, let’s open an issue. Go to
-the “Issues” tab at <a href="https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox">https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox</a>
+the “Issues” tab at
+<a href="https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox">https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox</a>
 and click the green “New issue” button. It should take you to the following page:</p>
 <p><img src="img/new_issue.png" /></p>
-<p>You’ll be adding your name to the repository’s README.md file. Your issue’s
+<p>You’ll be adding your name to the repository’s <code>README.md</code> file. Your issue’s
 title should reflect this task.</p>
 <p><img src="img/new_issue_title_description.png" /></p>
 <p>With this information entered, assign yourself to this issue (by clicking the
-little gear button next to “Assignees”). Then, click the green “Submit new issue” button. GitHub will take you to a new page:</p>
+little gear button next to “Assignees”). Then, click the green “Submit new issue”
+button. GitHub will take you to a new page:</p>
 <p><img src="img/new_issue_submitted.png" /></p>
 </div>
 <div id="making-changes" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Making Changes</h2>
 <p>With your issue open, it’s now time to make your changes.</p>
-<p>In the command line, open the README.md file with Vim. Go to line 12 and enter
-your first name and the first initial of your last name.</p>
-<p><img src="img/name_to_readme.png" /></p>
+<p>In the command line, open the <code>README.md</code> file with Vim. Go to line 12 and enter
+your first name and the first initial of your last name. The file should look
+like this:</p>
+<pre><code>$ cat README.md
+Practice Repository: Reproducible Research for Teams with GitHub
+================================================================
+
+Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
+
+Instructions:
+-------------
+
+Clone this repository, make a new branch named with your first name and last initial
+(e.g. `first-name_last-initial`) and write your name below.
+
+Name: &lt;firstname lastinitial&gt;</code></pre>
 <p>Save the file and quit Vim. Add the file to the Git staging area with <code>git add</code>.</p>
 <p>From here, you can commit the file as you normally would. But since you’re
 working on a specific issue, it would be helpful to reference that issue in your
 commit message. That way, your team can associate specific changes made to a
 project with the issues that discuss those changes.</p>
-<p>GitHub makes tracking issues easier by assigning each issue a number. In the
-example above, “Add ‘Tyler S.’ to README” is issue #1 (yours will be something
-different). To reference this issue in a commit, simply type the issue number in
-the commit message:</p>
-<p><img src="img/reference_an_issue.png" /></p>
+<p>GitHub makes tracking issues easier by assigning each issue a number. To
+reference an issue in a commit, simply type the issue number in the commit message,
+prepending it with #:</p>
+<pre><code>$ git add README.md
+$ git commit -m &#39;adding &lt;your name&gt; to README (resolves #&lt;your issue&gt;)
+[&lt;first-name_last-initial&gt; e257f92] adding &lt;your name&gt;. to README (resolves #&lt;your issue&gt;)
+ 1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
 </div>
 <div id="pushing-changes-on-a-branch" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Pushing Changes on a Branch</h2>
 <p>To see how GitHub makes reference to this commit, we’ll need to push our changes.
 But if you try <code>git push</code> from here, you’ll get the following error message:</p>
-<p><img src="img/no_upstream_branch.png" /></p>
+<pre><code>$ git push
+fatal: The current branch &lt;first-name_last-initial&gt; has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin &lt;first-name_last-initial&gt;</code></pre>
 <p>Here, Git is telling you that the remote repository doesn’t have a branch to
 associate your changes with; you’ve made a <em>local</em> branch, but that doesn’t
 automatically create a <em>remote</em> branch. We can see what branches are
 available on the remote repository with <code>git branch -a</code>:</p>
-<p><img src="img/see_all_branches.png" /></p>
-<p>The text in green lists local branches, while the red text lists remote
-branches. The “-&gt;” arrow that points from a red remote with a green local tells
+<pre style="font-size: small;">
+$ git branch -a
+  main
+* first-name_last-initial
+  <span style="color:red;">remotes/origin/HEAD</span> -> origin/main
+  <span style="color:red;">remotes/origin/carl_s</span>
+</pre>
+<p>The text in black lists local branches, while the red text lists remote
+branches. The “-&gt;” arrow that points from a red remote with a black local tells
 you which remote branch your own main branch is synced with.</p>
 <p>From this list, you can see that the remote repository doesn’t have your branch.
 You’ll need to push it.</p>
@@ -232,7 +261,21 @@ You’ll need to push it.</p>
 <pre><code>git push -u origin &lt;branch-name&gt;</code></pre>
 <p>(Note: here “origin” references your local repository.)</p>
 <p>Once you press “Enter”, you should see something like this:</p>
-<p><img src="img/push_branch_to_remote.png" /></p>
+<pre><code>$ git push -u origin &lt;first-name_last-initial&gt;
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for &#39;&lt;first-name_last-initial&gt;&#39; on GitHub by visiting:
+remote:      https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox/pull/new/&lt;first-name_last-initial&gt;
+remote: 
+To github.com:ucdavis-datalab-training/workshop_git_for_teams_sandbox.git
+ * [new branch]      &lt;first-name_last-initial&gt; -&gt; &lt;first-name_last-initial&gt;
+Branch &#39;&lt;first-name_last-initial&gt;&#39; set up to track remote branch &#39;&lt;first-name_last-initial&gt;&#39; from &#39;origin&#39;.</code></pre>
 <p>Now, if you type <code>git branch -a</code>, you’ll see a remote copy of your branch. You
 can also visit the repository page on GitHub, where you’ll see a notice that a
 branch has “recent pushes”.</p>

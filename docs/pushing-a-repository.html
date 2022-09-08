@@ -25,7 +25,7 @@
 <meta name="author" content="Dr. Carl Stahmer" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -105,7 +105,7 @@
 <li class="chapter" data-level="4.3" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pushing-a-local-repository"><i class="fa fa-check"></i><b>4.3</b> Pushing a Local Repository</a></li>
 <li class="chapter" data-level="4.4" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#tracking-files-remotely"><i class="fa fa-check"></i><b>4.4</b> Tracking Files Remotely</a></li>
 <li class="chapter" data-level="4.5" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#pulling-changes-from-a-remote-directory"><i class="fa fa-check"></i><b>4.5</b> Pulling Changes from a Remote Directory</a></li>
-<li class="chapter" data-level="4.6" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#gitignore"><i class="fa fa-check"></i><b>4.6</b> .gitignore</a></li>
+<li class="chapter" data-level="4.6" data-path="pushing-a-repository.html"><a href="pushing-a-repository.html#keeping-certain-files-untracked"><i class="fa fa-check"></i><b>4.6</b> Keeping Certain Files Untracked</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="cloning-a-repository.html"><a href="cloning-a-repository.html"><i class="fa fa-check"></i><b>5</b> Cloning a Repository</a>
 <ul>
@@ -155,21 +155,20 @@ local repository on your computer.</p>
 <div id="making-a-test-repository" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Making a Test Repository</h2>
 <p>First, use the command line to make a new directory in your Home folder:</p>
-<pre><code>mkdir ~/my_first_remote_directory</code></pre>
+<pre><code>$ mkdir ~/my_first_remote_directory</code></pre>
 <p>Put this directory under version control with Git:</p>
-<pre><code>cd ~/my_first_remote_directory
-git init</code></pre>
-<p>With Vim, make a README markdown file:</p>
-<pre><code>vim README.md</code></pre>
-<p>Write and save “Hello world!” in the file. You should see something like the
-following:</p>
-<p><img src="img/hello_world.png" /></p>
-<p>Exit Vim. Then, add README.md to Git and commit your changes. Don’t forget to
-write a short note in the commit message.</p>
-<pre><code>git add README.md
-git commit -m &#39;Add a README file&#39;</code></pre>
-<p>You should see the following:</p>
-<p><img src="img/commit_readme.png" /></p>
+<pre><code>$ cd ~/my_first_remote_directory
+$ git init
+Initialized empty Git repository in &lt;path&gt;/&lt;to&gt;/my_first_remote_directory/.git/</code></pre>
+<p>Now let’s create a new file, called:</p>
+<pre><code>$ echo &#39;Hello world!&#39; &gt; README.md</code></pre>
+<p>Time to add and commit our file with Git. Don’t forget to write a short note in
+the commit message.</p>
+<pre><code>$ git add README.md
+$ git commit -m &#39;Added a README file&#39;
+main (root-commit) cad7867] Added a README file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md</code></pre>
 </div>
 <div id="preparing-to-sync-your-repository" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Preparing to Sync Your Repository</h2>
@@ -181,12 +180,15 @@ button. You’ll be taken to this page:</p>
 <p><img src="img/new_repository.png" /></p>
 <p>There are a few things of note here:</p>
 <ul>
-<li>Repository name: your repository’s name, which should be the same as what’s on your computer</li>
+<li>Repository name: your repository’s name, which should be the same as what’s on
+your computer</li>
 <li>Description: a short (1-2 sentence) explanation of what’s in this repository</li>
-<li>Public/private setting: repositories may be either “public” (viewable by anyone) or “private” (only viewable by you and those to whom you grant access)</li>
+<li>Public/private setting: repositories may be either “public” (viewable by
+anyone) or “private” (only viewable by you and those to whom you grant access)</li>
 <li>Initialize with details, including:
 <ul>
-<li>A README file: a form of documentation; provides information about the files in the repository</li>
+<li>A README file: a form of documentation; provides information about the files
+in the repository</li>
 <li>A .gitignore file: instructs Git to ignore specific files or filetypes</li>
 <li>A license: governs the use or redistribution of your files</li>
 </ul></li>
@@ -208,16 +210,23 @@ uploading new files to the repository.</p>
 <p>Since we already have a repository made, we need to use the “Push an existing
 repository from the command line.” Pushing our repository is as easy as
 sequentially entering into the command line the three commands GitHub provides.</p>
-<pre><code>git remote add origin git@github.com:&lt;your user account&gt;/my_first_remote_directory.git
-git branch -M main
-git push -u origin</code></pre>
-<p>On the command line, that looks like this:</p>
-<p><img src="img/push_repository_command_line.png" /></p>
+<pre><code>$ git remote add origin git@github.com:&lt;your username&gt;/my_first_remote_directory.git
+$ git branch -M main
+$ git push -u origin
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 239 bytes | 239.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:&lt;your username&gt;/my_first_remote_directory.git
+ * [new branch]      main -&gt; main
+Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;origin&#39;.</code></pre>
 <p>To summarize the above, we’ve done the following:</p>
 <ol style="list-style-type: decimal">
-<li>Associated GitHub’s remote repository with our local repository (<code>git remote</code> etc.)</li>
+<li>Associated GitHub’s remote repository with our local repository (<code>git remote</code>
+etc.)</li>
 <li>Made a new branch in our local repository called “main” (<code>git branch -M main</code>)</li>
-<li>Pushed the contents of main (from <code>origin</code>) to a new, corresponding remote branch on GitHub</li>
+<li>Pushed the contents of main (from <code>origin</code>) to a new, corresponding remote
+branch on GitHub</li>
 </ol>
 <p>From here on out, when you want to update the remote repository with further
 changes, you can simply use the shorthand <code>git push</code> after the usual save, add,
@@ -225,11 +234,12 @@ commit steps. Importantly, Git will only update the branch you’re on when you
 enter <code>git push</code>, so before making any pushes, it’s a good idea to run a quick
 <code>git status</code> command to make sure you’re on the branch you want to be on.</p>
 <p>When you make your changes, the GitHub site won’t immediately refresh itself,
-but if you click on the “&lt; &gt; Code” tab or on the name of the directory, you’ll
-see that the repository has been synced and your README.md file is now online.</p>
+but if you click on the “Code” tab or on the name of the directory, you’ll see
+that the repository has been synced and your <code>README.md</code> file is now online.</p>
 <p><img src="img/new_repository_synced.png" /></p>
 <p>Note that GitHub automatically looks for a README file in your repository. If it
-finds one that contains renderable <a href="https://guides.github.com/features/mastering-markdown/">markdown</a> code, it will
+finds one that contains renderable
+<a href="https://guides.github.com/features/mastering-markdown/">markdown</a> code, it will
 render the file on your repository’s main page. (More information about writing
 effective README files is available through the DataLab’s data documentation
 <a href="https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/">workshop</a>.)</p>
@@ -239,23 +249,39 @@ effective README files is available through the DataLab’s data documentation
 <p>With this repository made, GitHub can start tracking changes you make to your
 files, much as Git does locally. The process works exactly like the one you
 do for Git, though it requires one more step.</p>
-<p>First, we’ll alter our README.md. Reopen the file with vim, skip a line down
+<p>First, we’ll alter our <code>README.md</code>. Reopen the file with Vim, skip a line down
 from the line you’ve already written, and add “My name is <your name>.” Save and
 quit.</p>
-<p><img src="img/hello_world_changed.png" /></p>
+<p>Your file should look like the following:</p>
+<pre><code>$ cat README.md
+Hello world!
+
+My name is &lt;your name&gt;.</code></pre>
 <p>Then, add the file and commit your changes.</p>
-<p><img src="img/commit_readme_update.png" /></p>
+<pre><code>$ git add README.md
+$ git commit -m &#39;Added my name to README&#39;
+[main 78bf509] Added my name to README
+ 1 file changed, 2 insertions(+)</code></pre>
 <p>If you want to push these changes to your remote repository, simply enter <code>git push</code>.
-You’ll see a similar message appear about enumerating, counting, and writing
-objects to GitHub. Afterwards, if you refresh your file on GitHub, you should
-see your changes:</p>
+Just as when you first linked your local repository to GitHub, you’ll see a
+message appear about enumerating, counting, and writing objects.</p>
+<pre><code>$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 292 bytes | 292.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:&lt;your username&gt;/my_first_remote_directory.git
+   cad7867..78bf509  main -&gt; main</code></pre>
+<p>Afterwards, if you refresh your file’s page on GitHub, you should see your
+changes:</p>
 <p><img src="img/new_repository_synced_updated.png" /></p>
 <p>Note that your commit message appears here as well:</p>
 <p><img src="img/new_repository_synced_message_highlight.png" /></p>
 <p>If you click the commit tag:</p>
 <p><img src="img/new_repository_synced_commit_tag.png" /></p>
 <p>You’ll be taken to another page, which shows you the differences between your
-old version and the new one:</p>
+old version and the new one. This is like running <code>git diff &lt;commit a&gt; &lt;commit b&gt;</code>
+on your local computer.</p>
 <p><img src="img/github_vdiff.png" /></p>
 </div>
 <div id="pulling-changes-from-a-remote-directory" class="section level2" number="4.5">
@@ -280,50 +306,77 @@ equivalent of doing <code>git add &lt;file&gt;</code> and <code>git commit -m &l
 command line.</p>
 <p>You’ll see something like the following:</p>
 <p><img src="img/updated_readme.png" /></p>
-<p>Back on the command line, if you type <code>git status</code>, you’ll see that your local
-repository is now out of sync.</p>
-<p><img src="img/branch_behind.png" /></p>
+<p>Back on the command line, you can run <code>git fetch</code> to see whether any changes have
+been made to the remote repository.</p>
+<pre><code>$ git fetch
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 666 bytes | 333.00 KiB/s, done.
+From github.com:t-shoemaker/my_first_remote_directory
+   78bf509..2335530  main       -&gt; origin/main</code></pre>
+<p>With this information about your remote repository pulled down to your computer,
+you can run a status check. If you do so, you’ll see that your local repository
+is now out of sync with the remote one.</p>
+<pre><code>$ git status
+On branch main
+Your branch is behind &#39;origin/main&#39; by 1 commit, and can be fast-forwarded.
+  (use &quot;git pull&quot; to update your local branch)
+
+nothing to commit, working tree clean</code></pre>
 <p>If you haven’t made any changes to your directory, syncing it with the remote
-version can be achieved with a straighforward pull command:</p>
-<pre><code>git pull</code></pre>
-<p>Once you enter this command, your command line should look something like this:</p>
-<p><img src="img/git_pull.png" /></p>
+version can be achieved with a straightforward <code>pull</code> command:</p>
+<pre><code>$ git pull
+Updating 78bf509..2335530
+Fast-forward
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)</code></pre>
 <p>Your files are now synced. A later portion of this reader will discuss how to
 handle this process when you <em>have</em> made changes to your directory between the
 time the remote was altered and the time you go to make a pull.</p>
 </div>
-<div id="gitignore" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> .gitignore</h2>
-<p>An issue that most users encounter when they start using Git and GitHub for team
-development and research is that it is common to have files in a version controlled
-directory that you do not want to distribute to the cloud or other users. As noted
-earlier in the workshop, it is good practice, for example, to exclude any files
-that contain system configuration, password, or sensitive data from the cloud
-repository. Most modern operating systems (such as Mac or Windows) also
+<div id="keeping-certain-files-untracked" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Keeping Certain Files Untracked</h2>
+<p>Before moving on, let’s briefly consider files that you <em>don’t</em> want Git/GitHub
+to track. When you’re using remote repositories, you’ll often find yourself in
+situations where you don’t want to share certain things with everyone who might
+come across your repository. Information about your system configuration,
+passwords, or other sensitive data are all examples of things you shouldn’t push
+to GitHub. Most modern operating systems (such as Mac or Windows) also
 automatically create and store a lot of hidden configuration files within the
-computer’s directory structure. For example, below is the directory listing for
-a directory on my system that contains resources for a workshop we offer in
-basic text mining using the R programming language:</p>
+computer’s directory structure. For example, below is a file listing for a
+directory containing resources for a workshop the DataLab offers about text
+mining and R:</p>
 <pre><code>$ ls
 D3VIS   data   gephi_tutorial   kumu_tutorial   r_networks   readme.txt   scraping   text_mining</code></pre>
-<p>And here is the same directory listing showing hidden files”</p>
+<p>And here is the same directory listing showing hidden files:</p>
 <pre><code>$ ls -a
 .   .DS_Store   D3VIS   gephi_tutorial   r_networks   scraping
 ..  .git        data    kumu_tutorial    readme.txt   text_mining</code></pre>
 <p>Note the appearance of the previously hidden <code>.DS_Store</code> and <code>.git</code> directories
-when we run <code>ls -a</code>.Git is pretty smart, and it knows to ignore its own hidden
-configuration files. But we need to tell Git explicitly to do this using a
-special file called <code>.gitignore</code>. You can create a .gitignore file from scratch
-using vim by typing <code>vim .gitignore</code> on the command line. When you do this, Vim
+when we run <code>ls -a</code>. These are those system- and directory-specific configuration
+files. Git is pretty smart, and it knows to ignore its own hidden configuration
+files, but we need to tell it explicitly to ignore the other one using a special
+file called <code>.gitignore</code>. You can create a <code>.gitignore</code> file from scratch
+using Vim by typing <code>vim .gitignore</code> on the command line. When you do this, Vim
 will open a new file. Then, you simply add the names of files and directories
-that you want git to ignore, one each per line of the new file.</p>
-<p><img src="img/gitignore.png" /></p>
-<p>Generally speaking, you should place your .gitignore file in the root of your
-repository, where it will control .git behavior for the repository. You can create
-a global .gitignore file, but this requires you to run various system
-configurations on .git itself. Information on this process can be found
+that you want Git to ignore, putting one per line of the new file.</p>
+<pre><code>.httr-oauth
+.DS_Store
+.config
+data/*</code></pre>
+<p>Note in this example that we’ve also added the <code>data</code> folder and any of its
+contents to <code>.gitignore</code>. This is for two reasons, which we discussed earlier: 1)
+it’s generally bad practice to track data files with version control systems; 2)
+the free version of GitHub (which you’re probably using) puts a cap on the total
+size of a repository. It would be a waste of space to have data eating away at
+that size limit.</p>
+<p>Generally speaking, you should place your <code>.gitignore</code> file in the root of your
+repository, where it will control Git behavior for the repository. You can create
+a global <code>.gitignore</code> file, but this requires you to run various system
+configurations on Git itself. Information on this process can be found
 <a href="https://git-scm.com/docs/gitignore">here</a>. GitHub also provides a nice repository
-of template .gitignore files for various types of development
+of template <code>.gitignore</code> files for various types of development
 <a href="https://github.com/github/gitignore">here</a>.</p>
 
 </div>
