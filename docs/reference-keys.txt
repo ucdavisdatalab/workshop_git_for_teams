@@ -3,6 +3,7 @@ interactive-session-information
 about-this-tutorial
 objectives-for-this-workshop
 prerequisites
+assessment
 about-github
 the-basics
 communicating-through-github
