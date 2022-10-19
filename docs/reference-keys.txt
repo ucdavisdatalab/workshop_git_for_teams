@@ -3,7 +3,6 @@ interactive-session-information
 about-this-tutorial
 objectives-for-this-workshop
 prerequisites
-assessment
 about-github
 the-basics
 communicating-through-github
@@ -37,3 +36,4 @@ closing-an-issue
 open-and-merge-a-pull-request
 opening-a-pull-request
 merging-a-pull-request
+assessment

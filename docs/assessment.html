@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Opening Issues and Making Changes | Reproducible Research for Teams with GitHub</title>
-  <meta name="description" content="6 Opening Issues and Making Changes | Reproducible Research for Teams with GitHub" />
+  <title>9 Assessment | Reproducible Research for Teams with GitHub</title>
+  <meta name="description" content="9 Assessment | Reproducible Research for Teams with GitHub" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Opening Issues and Making Changes | Reproducible Research for Teams with GitHub" />
+  <meta property="og:title" content="9 Assessment | Reproducible Research for Teams with GitHub" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Opening Issues and Making Changes | Reproducible Research for Teams with GitHub" />
+  <meta name="twitter:title" content="9 Assessment | Reproducible Research for Teams with GitHub" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="cloning-a-repository.html"/>
-<link rel="next" href="merging-remote-branches.html"/>
+<link rel="prev" href="open-and-merge-a-pull-request.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -148,159 +148,20 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="opening-issues-and-making-changes" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> Opening Issues and Making Changes<a href="opening-issues-and-making-changes.html#opening-issues-and-making-changes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>You’ve made a branch! It’s now possible to make changes to the cloned
-repository without stepping on the toes of your team members. However, it would
-be helpful to communicate with your team and tell them what you’re working on.</p>
-<div id="about-issues" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> About Issues<a href="opening-issues-and-making-changes.html#about-issues" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>On GitHub, one of the primary ways we do this is through <strong>Issues</strong>. Issues are
-the basic unit of project management on GitHub: they’re used for reporting
-bugs, keeping track of tasks, and requesting project enhancements. <em>Scope</em> is
-important for issues: an issue should address a specific bug or a discrete
-task, which a team member can then work on. Examples might include:</p>
-<ul>
-<li>Add an “About Us” button to a website navigation bar</li>
-<li>Following a recent directory restructure, filepaths need to be rewritten</li>
-<li>Fix the encodings of a source file</li>
-<li>Update README to include new information about recent changes</li>
-</ul>
-<p>Issues contain the following parts:</p>
-<ul>
-<li>A title: a brief summary of the task, bug, or request</li>
-<li>A description: space for additional information about the task, bug, or
-request</li>
-<li>Assignees: information about which team member is working on the issue</li>
-<li>Labels: projects might ask team members to specify an issue type with a tag
-(e.g. “bug”, “enhancement”)</li>
-<li>Milestones: teams can set larger goals for a project, of which a given issue
-might be a part</li>
-<li>Comments: space where team members can discuss issues</li>
-</ul>
-<p>Typically, a team member will <strong>open</strong> an issue, enter the above information,
-and begin working on whatever task that issue requires. When they’re finished,
-the team member will <strong>close</strong> the issue, which lets others know that that task
-has been completed.</p>
-<p>You can read more about GitHub issues <a href="https://guides.github.com/features/issues/">here</a>.</p>
-</div>
-<div id="opening-an-issue" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Opening an Issue<a href="opening-issues-and-making-changes.html#opening-an-issue" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we make any changes to our cloned repository, let’s open an issue. Go to
-the “Issues” tab at
-<a href="https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox">https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox</a>
-and click the green “New issue” button. It should take you to the following
-page:</p>
-<p><img src="img/new_issue.png" alt="A new issue template on GitHub" /></p>
-<p>You’ll be adding your name to the repository’s <code>README.md</code> file. Your issue’s
-title should reflect this task.</p>
-<p><img src="img/new_issue_title_description.png" alt="A new issue with the title and comment fields filled in" /></p>
-<p>With this information entered, assign yourself to this issue (by clicking the
-little gear button next to “Assignees”). Then, click the green “Submit new
-issue” button. GitHub will take you to a new page:</p>
-<p><img src="img/new_issue_submitted.png" alt="A submitted issue" /></p>
-</div>
-<div id="making-changes" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Making Changes<a href="opening-issues-and-making-changes.html#making-changes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>With your issue open, it’s now time to make your changes.</p>
-<p>In the command line, open the <code>README.md</code> file with Vim. Go to line 12 and
-enter your first name and the first initial of your last name. The file should
-look like this:</p>
-<pre><code>$ cat README.md
-Practice Repository: Reproducible Research for Teams with GitHub
-================================================================
+<div id="assessment" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> Assessment<a href="assessment.html#assessment" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>To earn GradPathways micro-badge for this workshop, download the <a href="https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/assessment.zip">zipped
+assessment</a> folder and unzip it in a location of your choosing on your
+computer. Follow the included instructions.</p>
 
-Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
-
-Instructions:
--------------
-
-Clone this repository, make a new branch named with your first name and last initial
-(e.g. `first-name_last-initial`) and write your name below.
-
-Name: &lt;firstname lastinitial&gt;</code></pre>
-<p>Save the file and quit Vim. Add the file to the Git staging area with <code>git add</code>.</p>
-<p>From here, you can commit the file as you normally would. But since you’re
-working on a specific issue, it would be helpful to reference that issue in
-your commit message. That way, your team can associate specific changes made to
-a project with the issues that discuss those changes.</p>
-<p>GitHub makes tracking issues easier by assigning each issue a number. To
-reference an issue in a commit, simply type the issue number in the commit
-message, prepending it with #:</p>
-<pre><code>$ git add README.md
-$ git commit -m &#39;adding &lt;your name&gt; to README (resolves #&lt;your issue&gt;)
-[&lt;first-name_last-initial&gt; e257f92] adding &lt;your name&gt;. to README (resolves #&lt;your issue&gt;)
- 1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
-</div>
-<div id="pushing-changes-on-a-branch" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Pushing Changes on a Branch<a href="opening-issues-and-making-changes.html#pushing-changes-on-a-branch" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To see how GitHub makes reference to this commit, we’ll need to push our
-changes. But if you try <code>git push</code> from here, you’ll get the following error
-message:</p>
-<pre><code>$ git push
-fatal: The current branch &lt;first-name_last-initial&gt; has no upstream branch.
-To push the current branch and set the remote as upstream, use
-
-    git push --set-upstream origin &lt;first-name_last-initial&gt;</code></pre>
-<p>Here, Git is telling you that the remote repository doesn’t have a branch to
-associate your changes with; you’ve made a <em>local</em> branch, but that doesn’t
-automatically create a <em>remote</em> branch. We can see what branches are available
-on the remote repository with <code>git branch -a</code>:</p>
-<pre style="font-size: small;">
-$ git branch -a
-  main
-* first-name_last-initial
-  <span style="color:red;">remotes/origin/HEAD</span> -> origin/main
-  <span style="color:red;">remotes/origin/carl_s</span>
-</pre>
-<p>The text in black lists local branches, while the red text lists remote
-branches. The “-&gt;” arrow that points from a red remote with a black local tells
-you which remote branch your own main branch is synced with.</p>
-<p>From this list, you can see that the remote repository doesn’t have your
-branch. You’ll need to push it.</p>
-<p>To do so, type the following into your command line:</p>
-<pre><code>git push --set-upstream origin &lt;branch-name&gt;</code></pre>
-<p>There’s also a bit of shorthand for this command:</p>
-<pre><code>git push -u origin &lt;branch-name&gt;</code></pre>
-<p>(Note: here “origin” references your local repository.)</p>
-<p>Once you press “Enter”, you should see something like this:</p>
-<pre><code>$ git push -u origin &lt;first-name_last-initial&gt;
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 12 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-remote: 
-remote: Create a pull request for &#39;&lt;first-name_last-initial&gt;&#39; on GitHub by visiting:
-remote:      https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox/pull/new/&lt;first-name_last-initial&gt;
-remote: 
-To github.com:ucdavis-datalab-training/workshop_git_for_teams_sandbox.git
- * [new branch]      &lt;first-name_last-initial&gt; -&gt; &lt;first-name_last-initial&gt;
-Branch &#39;&lt;first-name_last-initial&gt;&#39; set up to track remote branch &#39;&lt;first-name_last-initial&gt;&#39; from &#39;origin&#39;.</code></pre>
-<p>Now, if you type <code>git branch -a</code>, you’ll see a remote copy of your branch. You
-can also visit the repository page on GitHub, where you’ll see a notice that a
-branch has “recent pushes”.</p>
-<p><img src="img/github_recent_pushes.png" alt="The sandbox repository with a message showing recent pushes to the tyler_s branch" /></p>
-<p>Click on the “branches” icon:</p>
-<p><img src="img/github_recent_pushes_focus.png" alt="The sandbox repository with a red box around the branches button" /></p>
-<p>…and you’ll see a list of branches.</p>
-<p>If you click on yours, you’ll see that this branch is “ahead” of the main
-branch by 1 commit. You’ll also see that your change has appeared down in the
-README view. Finally, you’ll see in the commit message view that the message
-has turned your issue number into a hyperlink.</p>
-<p><img src="img/github_pushed_branch_changes.png" alt="The tyler_s branch of the sandbox repository" /></p>
-
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="cloning-a-repository.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="merging-remote-branches.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="open-and-merge-a-pull-request.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -321,7 +182,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/06_opening-issues-and-making-changes.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/09_assessment.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -329,7 +190,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/06_opening-issues-and-making-changes.Rmd",
+"link": "https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/09_assessment.Rmd",
 "text": null
 },
 "download": null,
