@@ -30,7 +30,7 @@ making-changes
 pushing-changes-on-a-branch
 merging-remote-branches
 a-quick-change-of-plans
-fetching-a-remote-branch
+tracking-a-remote-branch
 merging-branches
 closing-an-issue
 open-and-merge-a-pull-request

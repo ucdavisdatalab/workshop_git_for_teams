@@ -24,7 +24,7 @@
 <meta name="author" content="Carl Stahmer" />
 
 
-<meta name="date" content="2022-10-19" />
+<meta name="date" content="2022-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,7 +121,7 @@
 <li class="chapter" data-level="7" data-path="merging-remote-branches.html"><a href="merging-remote-branches.html"><i class="fa fa-check"></i><b>7</b> Merging Remote Branches</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="merging-remote-branches.html"><a href="merging-remote-branches.html#a-quick-change-of-plans"><i class="fa fa-check"></i><b>7.1</b> A Quick Change of Plans</a></li>
-<li class="chapter" data-level="7.2" data-path="merging-remote-branches.html"><a href="merging-remote-branches.html#fetching-a-remote-branch"><i class="fa fa-check"></i><b>7.2</b> Fetching a Remote Branch</a></li>
+<li class="chapter" data-level="7.2" data-path="merging-remote-branches.html"><a href="merging-remote-branches.html#tracking-a-remote-branch"><i class="fa fa-check"></i><b>7.2</b> Tracking a Remote Branch</a></li>
 <li class="chapter" data-level="7.3" data-path="merging-remote-branches.html"><a href="merging-remote-branches.html#merging-branches"><i class="fa fa-check"></i><b>7.3</b> Merging Branches</a></li>
 <li class="chapter" data-level="7.4" data-path="merging-remote-branches.html"><a href="merging-remote-branches.html#closing-an-issue"><i class="fa fa-check"></i><b>7.4</b> Closing an Issue</a></li>
 </ul></li>
@@ -173,22 +173,27 @@ your change of plans. Tag the person whose branch you’ll be merging with using
 <p>In a real-world project, you might also edit the title of your issue to reflect
 your changes, but for now, you can leave it as is.</p>
 </div>
-<div id="fetching-a-remote-branch" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> Fetching a Remote Branch<a href="merging-remote-branches.html#fetching-a-remote-branch" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tracking-a-remote-branch" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Tracking a Remote Branch<a href="merging-remote-branches.html#tracking-a-remote-branch" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now it’s time to make a copy of the remote branch on your local computer. You
 can find the branch on the command line with <code>git branch -a</code> (it’ll be in red
-text). To get the branch and begin tracking any future changes that might occur
-on that branch, simply type:</p>
+text). If you don’t see extra branches listed when you enter this command, run
+<code>git fetch</code> and try again.</p>
+<p>There are a few ways to get the branch itself. Newer versions of Git use:</p>
 <pre><code>$ git switch &lt;remote-branch&gt;
 Branch &#39;&lt;remote-branch&gt;&#39; set up to track remote branch &#39;&lt;remote-branch&gt;&#39; from &#39;origin&#39;.
 Switched to a new branch &#39;&lt;remote-branch&gt;&#39;</code></pre>
-<p>(Note: in the past, Git has used other commands like <code>fetch</code> and <code>track</code> to
-perform these operations, but <code>switch</code> is a nice shorthand, especially for
-smaller projects like this.)</p>
-<p>If you open the <code>README.md</code> file, you’ll find that your name has disappeared
-and the other person’s name is there instead. With that, you should now have
-<em>three</em> branches on your local machine: the main branch, the one you created,
-and the branch you’ve just fetched from GitHub.</p>
+<p>If you have an older version of Git on your computer, you’ll need to use a
+checkout:</p>
+<pre><code>$ git checkout &lt;remote-branch&gt;
+Branch &#39;&lt;remote-branch&gt;&#39; set up to track remote branch &#39;&lt;remote-branch&gt;&#39; from &#39;origin&#39;.
+Switched to a new branch &#39;&lt;remote-branch&gt;&#39;</code></pre>
+<p>In either case, Git will pull down a local copy of a remote branch and begin
+tracking it.</p>
+<p>Now, if you open the <code>README.md</code> file, you’ll find that your name has
+disappeared and the other person’s name is there instead. With that, you should
+now have <em>three</em> branches on your local machine: the main branch, the one you
+created, and the branch you’ve just fetched from GitHub.</p>
 </div>
 <div id="merging-branches" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Merging Branches<a href="merging-remote-branches.html#merging-branches" class="anchor-section" aria-label="Anchor link to header"></a></h2>
