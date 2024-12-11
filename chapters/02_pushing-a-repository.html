@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Pushing Commits &#8212; Reproducible Research for Teams with GitHub</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/02_pushing-a-repository';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Cloning a Repository" href="03_cloning-a-repository.html" />
+    <link rel="prev" title="1. About GitHub" href="01_about-github.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Reproducible Research for Teams with GitHub - Home"/>
+    <img src="../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark pst-js-only" alt="Reproducible Research for Teams with GitHub - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up-a-github-account.html">Setting Up a GitHub Account</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducible Research for Teams with GitHub</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_about-github.html">1. About GitHub</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Pushing Commits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_cloning-a-repository.html">3. Cloning a Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_opening-issues-and-making-changes.html">4. Opening Issues and Making Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_merging-remote-branches.html">5. Merging Remote Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_open-and-merge-pull-requests.html">6. Open and Merge a Pull Request</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="assessment.html">Assessment</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_git_for_teams" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_git_for_teams/issues/new?title=Issue%20on%20page%20%2Fchapters/02_pushing-a-repository.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/02_pushing-a-repository.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pushing Commits</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-test-repository">2.1. Making a Test Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-to-sync-your-repository">2.2. Preparing to Sync Your Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-a-local-repository">2.3. Pushing a Local Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-files-remotely">2.4. Tracking Files Remotely</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-changes-from-a-remote-directory">2.5. Pulling Changes from a Remote Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-certain-files-untracked">2.6. Keeping Certain Files Untracked</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pushing-commits">
+<h1><span class="section-number">2. </span>Pushing Commits<a class="headerlink" href="#pushing-commits" title="Link to this heading">#</a></h1>
+<p>This chapter explains how to create a repository on GitHub and sync it with a
+local repository on your computer.</p>
+<section id="making-a-test-repository">
+<h2><span class="section-number">2.1. </span>Making a Test Repository<a class="headerlink" href="#making-a-test-repository" title="Link to this heading">#</a></h2>
+<p>First, use the command line to make and change to a new directory in your home
+folder (<code class="docutils literal notranslate"><span class="pre">~</span></code>):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/my_first_remote_directory
+<span class="nb">cd</span><span class="w"> </span>~/my_first_remote_directory
+</pre></div>
+</div>
+<p>Then initialize a Git repository in the directory:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>init
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Initialized empty Git repository in &lt;path&gt;/&lt;to&gt;/my_first_remote_directory/.git/
+</pre></div>
+</div>
+<p>Now let’s create a new file, called <code class="docutils literal notranslate"><span class="pre">README.md</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Hello world!&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>README.md
+</pre></div>
+</div>
+<p>Time to add and commit our file with Git. Don’t forget to write a short note in
+the commit message.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;Added a README file&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>main (root-commit) cad7867] Added a README file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+</pre></div>
+</div>
+</section>
+<section id="preparing-to-sync-your-repository">
+<h2><span class="section-number">2.2. </span>Preparing to Sync Your Repository<a class="headerlink" href="#preparing-to-sync-your-repository" title="Link to this heading">#</a></h2>
+<p>So far so good! All we’ve done is repeat the usual workflow for putting files
+under version control. But now we need to step away from the command line for a
+moment and prepare a space for receiving this repository on GitHub.</p>
+<p>To do so, go to <a class="reference external" href="https://github.com/">GitHub</a> and click the “+” button in the top right corner.
+Select the “New repository” option. You’ll be taken to a page like this:</p>
+<figure class="align-default">
+<img alt="GitHub's new repository template page." src="../_images/new_repository.png" />
+</figure>
+<p>There are a few things of note here:</p>
+<ul class="simple">
+<li><p>Repository name: your repository’s name, which should be the same as what’s
+on your computer</p></li>
+<li><p>Description: a short (1-2 sentence) explanation of what’s in this repository</p></li>
+<li><p>Public/private setting: repositories may be either “public” (viewable by
+anyone) or “private” (only viewable by you and those to whom you grant
+access)</p></li>
+<li><p>“Initialize this repository with”:</p>
+<ul>
+<li><p>A README file: a form of documentation; provides information about the
+files in the repository</p></li>
+<li><p>A .gitignore file: instructs Git to ignore specific files or filetypes</p></li>
+<li><p>A license: governs the use or redistribution of your files</p></li>
+</ul>
+</li>
+</ul>
+<p>Because we’re initializing this repository from an existing directory, we won’t
+bother with most of the extra details. But we do need a title, which should be
+the same as what’s on your local computer (<code class="docutils literal notranslate"><span class="pre">my_first_remote_directory</span></code>). A
+description is helpful but not necessary for our purposes; the same goes for a
+license. Finally, we will choose to make this a public repository (meaning
+anyone can see it).</p>
+<figure class="align-default">
+<img alt="A repository template with the repository name filled out and the public setting on." src="../_images/new_repository_details.png" />
+</figure>
+</section>
+<section id="pushing-a-local-repository">
+<h2><span class="section-number">2.3. </span>Pushing a Local Repository<a class="headerlink" href="#pushing-a-local-repository" title="Link to this heading">#</a></h2>
+<p>Once you’ve entered the above information, click “Create repository.” GitHub
+will take you to a new screen, which gives you a number of options for making
+or uploading new files to the repository.</p>
+<figure class="align-default">
+<img alt="GitHub's template code for syncing the remote repository with your local copy. The text for this code is below." src="../_images/new_repository_options.png" />
+</figure>
+<p>Since we already have a local copy of the repository, we need to use the “Push
+an existing repository from the command line.” In your terminal, enter the
+three commands GitHub recommends. First:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>REPOSITORY_URL
+</pre></div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">REPOSITORY_URL</span></code> is unique to your repository (copy it from GitHub).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 239 bytes | 239.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:&lt;your username&gt;/my_first_remote_directory.git
+ * [new branch]      main -&gt; main
+Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;origin&#39;.
+</pre></div>
+</div>
+<p>To summarize the above, we’ve done the following:</p>
+<ol class="arabic simple">
+<li><p>Associated GitHub’s remote repository with our local repository (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span></code> etc.)</p></li>
+<li><p>Made a new branch in our local repository called “main” (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-M</span> <span class="pre">main</span></code>)</p></li>
+<li><p>Pushed the contents of main (from <code class="docutils literal notranslate"><span class="pre">origin</span></code>) to a new, corresponding remote
+branch on GitHub</p></li>
+</ol>
+<p>From here on out, when you want to update the remote repository with further
+changes, you can simply use the shorthand <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> after the usual save, add,
+commit steps. Importantly, Git will only update the branch you’re on when you
+enter <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>, so before making any pushes, it’s a good idea to run a quick
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> command to make sure you’re on the branch you want to be on.</p>
+<p>When you make your changes, the GitHub site won’t immediately refresh itself,
+but if you click on the “Code” tab or on the name of the directory, you’ll see
+that the repository has been synced and your <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file is now online.</p>
+<figure class="align-default">
+<img alt="A GitHub repository showing the README.md file." src="../_images/new_repository_synced.png" />
+</figure>
+<p>Note that GitHub automatically looks for a README file in your repository. If
+it finds one that contains renderable <a class="reference external" href="https://guides.github.com/features/mastering-markdown/">markdown</a> code, it will render the
+file on your repository’s main page. (More information about writing effective
+README files is available through the DataLab’s data documentation
+<a class="reference external" href="https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/">workshop</a>.)</p>
+</section>
+<section id="tracking-files-remotely">
+<h2><span class="section-number">2.4. </span>Tracking Files Remotely<a class="headerlink" href="#tracking-files-remotely" title="Link to this heading">#</a></h2>
+<p>With this repository made, GitHub can start tracking changes you make to your
+files, much as Git does locally. The process works exactly like the one you do
+for Git, though it requires one more step.</p>
+<p>First, we’ll alter our <code class="docutils literal notranslate"><span class="pre">README.md</span></code>. Reopen the file with Vim, skip a line down
+from the line you’ve already written, and add <code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">name</span> <span class="pre">is</span> <span class="pre">NAME.</span></code>, where <code class="docutils literal notranslate"><span class="pre">NAME</span></code>
+is your name. Save and quit.</p>
+<p>Your file should look like the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>README.md
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hello world!
+
+My name is NAME.
+</pre></div>
+</div>
+<p>Then, add the file and commit your changes.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;Added my name to README&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[main 78bf509] Added my name to README
+ 1 file changed, 2 insertions(+)
+</pre></div>
+</div>
+<p>If you want to push these changes to your remote repository, simply enter <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>. Just as when you first linked your local repository to GitHub, you’ll
+see a message appear about enumerating, counting, and writing objects.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 292 bytes | 292.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:&lt;your username&gt;/my_first_remote_directory.git
+   cad7867..78bf509  main -&gt; main
+</pre></div>
+</div>
+<p>Afterwards, if you refresh your file’s page on GitHub, you should see your
+changes:</p>
+<figure class="align-default">
+<img alt="The remote README.md file with Tyler's name on it." src="../_images/new_repository_synced_updated.png" />
+</figure>
+<p>Note that your commit message appears here as well:</p>
+<figure class="align-default">
+<img alt="README.md remote page with a red box around the commit information for the file, which shows the message for the commit." src="../_images/new_repository_synced_message_highlight.png" />
+</figure>
+<p>If you click the commit tag:</p>
+<figure class="align-default">
+<img alt="README.md remote page with a red box around the commit hash." src="../_images/new_repository_synced_commit_tag.png" />
+</figure>
+<p>You’ll be taken to another page, which shows you the differences between your
+old version and the new one. This is like running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">&lt;commit</span> <span class="pre">a&gt;</span> <span class="pre">&lt;commit</span> <span class="pre">b&gt;</span></code> on your local computer.</p>
+<figure class="align-default">
+<img alt="A side-by-side view of the file as it currently exists and its previous version." src="../_images/github_vdiff.png" />
+</figure>
+</section>
+<section id="pulling-changes-from-a-remote-directory">
+<h2><span class="section-number">2.5. </span>Pulling Changes from a Remote Directory<a class="headerlink" href="#pulling-changes-from-a-remote-directory" title="Link to this heading">#</a></h2>
+<p>Before moving on, it’s also worth noting that we can pull changes directly from
+GitHub. If a file has been altered on the remote version of a project, GitHub
+offers functionality for syncing that file with your local copy (or creating a
+new file altogether, if need be).</p>
+<p>For example, if you return to the main page of “my_first_remote_directory”,
+you can alter the README directly on GitHub. Click the pencil in the right-hand
+corner of the rendered file.</p>
+<figure class="align-default">
+<img alt="README.md remote page with a red box around the pencil-shaped edit icon." src="../_images/new_repository_pencil_highlight.png" />
+</figure>
+<p>This will open up a text editor interface. Using it, add “What’s yours?” on the
+fifth line of the document. The complete document should look like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hello world!
+
+My name is &lt;your name&gt;
+
+What&#39;s yours?
+</pre></div>
+</div>
+<p>Scroll to the bottom and click the green “Commit changes” button. This is the
+equivalent of doing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;file&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&lt;message&gt;</span></code> on the
+command line.</p>
+<p>You’ll see something like the following:</p>
+<figure class="align-default">
+<img alt="The remote copy of README.md updated with new information." src="../_images/updated_readme.png" />
+</figure>
+<p>Back on the command line, you can run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> to see whether any changes
+have been made to the remote repository.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 666 bytes | 333.00 KiB/s, done.
+From github.com:t-shoemaker/my_first_remote_directory
+   78bf509..2335530  main       -&gt; origin/main
+</pre></div>
+</div>
+<p>With this information about your remote repository pulled down to your
+computer, you can run a status check. If you do so, you’ll see that your local
+repository is now out of sync with the remote one.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>On branch main
+Your branch is behind &#39;origin/main&#39; by 1 commit, and can be fast-forwarded.
+  (use &quot;git pull&quot; to update your local branch)
+
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>If you haven’t made any changes to your directory, syncing it with the remote
+version can be achieved with a straightforward <code class="docutils literal notranslate"><span class="pre">pull</span></code> command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Updating 78bf509..2335530
+Fast-forward
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+</pre></div>
+</div>
+<p>Your files are now synced. A later portion of this reader will discuss how to
+handle this process when you <em>have</em> made changes to your directory between the
+time the remote was altered and the time you go to make a pull.</p>
+</section>
+<section id="keeping-certain-files-untracked">
+<h2><span class="section-number">2.6. </span>Keeping Certain Files Untracked<a class="headerlink" href="#keeping-certain-files-untracked" title="Link to this heading">#</a></h2>
+<p>Before moving on, let’s briefly consider files that you <em>don’t</em> want Git/GitHub
+to track. When you’re using remote repositories, you’ll often find yourself in
+situations where you don’t want to share certain things with everyone who might
+come across your repository. Information about your system configuration,
+passwords, or other sensitive data are all examples of things you shouldn’t
+push to GitHub. Most modern operating systems (such as Mac or Windows) also
+automatically create and store a lot of hidden configuration files within the
+computer’s directory structure. For example, below is a file listing for a
+directory containing resources for a workshop the DataLab offers about text
+mining and R:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D3VIS</span>   <span class="n">data</span>   <span class="n">gephi_tutorial</span>   <span class="n">kumu_tutorial</span>   <span class="n">r_networks</span>   <span class="n">readme</span><span class="o">.</span><span class="n">txt</span>   <span class="n">scraping</span>   <span class="n">text_mining</span>
+</pre></div>
+</div>
+<p>And here is the same directory listing showing hidden files:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-a
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.   .DS_Store   D3VIS   gephi_tutorial   r_networks   scraping
+..  .git        data    kumu_tutorial    readme.txt   text_mining
+</pre></div>
+</div>
+<p>Note the appearance of the previously hidden <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code> and <code class="docutils literal notranslate"><span class="pre">.git</span></code> directories
+when we run <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code>. These are those system- and directory-specific
+configuration files. Git is pretty smart, and it knows to ignore its own hidden
+configuration files, but we need to tell it explicitly to ignore the other one
+using a special file called <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.  You can create a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file
+from scratch using Vim by typing <code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">.gitignore</span></code> on the command line. When you
+do this, Vim will open a new file. Then, you simply add the names of files and
+directories that you want Git to ignore, putting one per line of the new file.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.httr-oauth
+.DS_Store
+.config
+data/*
+</pre></div>
+</div>
+<p>Note in this example that we’ve also added the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder and any of its
+contents to <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>. This is for two reasons, which we discussed earlier:</p>
+<ol class="arabic simple">
+<li><p>it’s generally bad practice to track data files with version control
+systems; 2) the free version of GitHub (which you’re probably using) puts a cap
+on the total size of a repository. It would be a waste of space to have data
+eating away at that size limit.</p></li>
+</ol>
+<p>Generally speaking, you should place your <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file in the root of your
+repository, where it will control Git behavior for the repository. You can
+create a global <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file, but this requires you to run various system
+configurations on Git itself. Information on this process can be found
+<a class="reference external" href="https://git-scm.com/docs/gitignore">here</a>. GitHub also provides a nice
+repository of template <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> files for various types of development
+<a class="reference external" href="https://github.com/github/gitignore">here</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_about-github.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>About GitHub</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_cloning-a-repository.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Cloning a Repository</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-test-repository">2.1. Making a Test Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-to-sync-your-repository">2.2. Preparing to Sync Your Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-a-local-repository">2.3. Pushing a Local Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-files-remotely">2.4. Tracking Files Remotely</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-changes-from-a-remote-directory">2.5. Pulling Changes from a Remote Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-certain-files-untracked">2.6. Keeping Certain Files Untracked</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carl Stahmer, Tyler Shoemaker, Wesley Brooks, Nick Ulle
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

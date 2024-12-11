@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Opening Issues and Making Changes &#8212; Reproducible Research for Teams with GitHub</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/04_opening-issues-and-making-changes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Merging Remote Branches" href="05_merging-remote-branches.html" />
+    <link rel="prev" title="3. Cloning a Repository" href="03_cloning-a-repository.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Reproducible Research for Teams with GitHub - Home"/>
+    <img src="../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark pst-js-only" alt="Reproducible Research for Teams with GitHub - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up-a-github-account.html">Setting Up a GitHub Account</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducible Research for Teams with GitHub</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_about-github.html">1. About GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_pushing-a-repository.html">2. Pushing Commits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_cloning-a-repository.html">3. Cloning a Repository</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Opening Issues and Making Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_merging-remote-branches.html">5. Merging Remote Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_open-and-merge-pull-requests.html">6. Open and Merge a Pull Request</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Back Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="assessment.html">Assessment</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_git_for_teams" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_git_for_teams/issues/new?title=Issue%20on%20page%20%2Fchapters/04_opening-issues-and-making-changes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/04_opening-issues-and-making-changes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Opening Issues and Making Changes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-issues">4.1. About Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-an-issue">4.2. Opening an Issue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">4.3. Making Changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-changes-on-a-branch">4.4. Pushing Changes on a Branch</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="opening-issues-and-making-changes">
+<h1><span class="section-number">4. </span>Opening Issues and Making Changes<a class="headerlink" href="#opening-issues-and-making-changes" title="Link to this heading">#</a></h1>
+<p>You’ve made a branch! It’s now possible to make changes to the cloned
+repository without stepping on the toes of your team members. However, it would
+be helpful to communicate with your team and tell them what you’re working on.</p>
+<section id="about-issues">
+<h2><span class="section-number">4.1. </span>About Issues<a class="headerlink" href="#about-issues" title="Link to this heading">#</a></h2>
+<p>On GitHub, one of the primary ways we do this is through <strong>Issues</strong>. Issues are
+the basic unit of project management on GitHub: they’re used for reporting
+bugs, keeping track of tasks, and requesting project enhancements. <em>Scope</em> is
+important for issues: an issue should address a specific bug or a discrete
+task, which a team member can then work on. Examples might include:</p>
+<ul class="simple">
+<li><p>Add an “About Us” button to a website navigation bar</p></li>
+<li><p>Following a recent directory restructure, filepaths need to be rewritten</p></li>
+<li><p>Fix the encodings of a source file</p></li>
+<li><p>Update README to include new information about recent changes</p></li>
+</ul>
+<p>Issues contain the following parts:</p>
+<ul class="simple">
+<li><p>A title: a brief summary of the task, bug, or request</p></li>
+<li><p>A description: space for additional information about the task, bug, or
+request</p></li>
+<li><p>Assignees: information about which team member is working on the issue</p></li>
+<li><p>Labels: projects might ask team members to specify an issue type with a tag
+(e.g. “bug”, “enhancement”)</p></li>
+<li><p>Milestones: teams can set larger goals for a project, of which a given issue
+might be a part</p></li>
+<li><p>Comments: space where team members can discuss issues</p></li>
+</ul>
+<p>Typically, a team member will <strong>open</strong> an issue, enter the above information,
+and begin working on whatever task that issue requires. When they’re finished,
+the team member will <strong>close</strong> the issue, which lets others know that that task
+has been completed.</p>
+<p>You can read more about GitHub issues <a class="reference external" href="https://guides.github.com/features/issues/">here</a>.</p>
+</section>
+<section id="opening-an-issue">
+<h2><span class="section-number">4.2. </span>Opening an Issue<a class="headerlink" href="#opening-an-issue" title="Link to this heading">#</a></h2>
+<p>Before we make any changes to our cloned repository, let’s open an issue. Go to
+the “Issues” tab at
+<a class="github reference external" href="https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox">ucdavis-datalab-training/workshop_git_for_teams_sandbox</a>
+and click the green “New issue” button. It should take you to the following
+page:</p>
+<figure class="align-default">
+<img alt="A new issue template on GitHub." src="../_images/new_issue.png" />
+</figure>
+<p>You’ll be adding your name to the repository’s <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file. Your issue’s
+title should reflect this task.</p>
+<figure class="align-default">
+<img alt="A new issue with the title and comment fields filled in." src="../_images/new_issue_title_description.png" />
+</figure>
+<p>With this information entered, assign yourself to this issue (by clicking the
+little gear button next to “Assignees”). Then, click the green “Submit new
+issue” button. GitHub will take you to a new page:</p>
+<figure class="align-default">
+<img alt="A submitted issue." src="../_images/new_issue_submitted.png" />
+</figure>
+</section>
+<section id="making-changes">
+<h2><span class="section-number">4.3. </span>Making Changes<a class="headerlink" href="#making-changes" title="Link to this heading">#</a></h2>
+<p>With your issue open, it’s now time to make your changes.</p>
+<p>In the command line, open the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file with Vim. Go to line 12 and
+enter your first name and the first initial of your last name. The file should
+look like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>README.md
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Practice Repository: Reproducible Research for Teams with GitHub
+================================================================
+
+Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
+
+Instructions:
+-------------
+
+Clone this repository, make a new branch named with your first name and last initial
+(e.g. `first-name_last-initial`) and write your name below.
+
+Name: FIRST_NAME LAST_INITIAL
+</pre></div>
+</div>
+<p>Save the file and quit Vim. Add the file to the Git staging area with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>.</p>
+<p>From here, you can commit the file as you normally would. But since you’re
+working on a specific issue, it would be helpful to reference that issue in
+your commit message. That way, your team can associate specific changes made to
+a project with the issues that discuss those changes.</p>
+<p>GitHub makes tracking issues easier by assigning each issue a number. To
+reference an issue in a commit, simply type the issue number in the commit
+message, prepending it with #:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;adding NAME to README (resolves #ISSUE_NUMBER)&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">FIRST_NAME_LAST_INITIAL</span> <span class="n">e257f92</span><span class="p">]</span> <span class="n">adding</span> <span class="n">NAME</span> <span class="n">to</span> <span class="n">README</span> <span class="p">(</span><span class="n">resolves</span> <span class="c1">#ISSUE_NUMBER)</span>
+ <span class="mi">1</span> <span class="n">file</span> <span class="n">changed</span><span class="p">,</span> <span class="mi">1</span> <span class="n">insertion</span><span class="p">(</span><span class="o">+</span><span class="p">),</span> <span class="mi">1</span> <span class="n">deletion</span><span class="p">(</span><span class="o">-</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="pushing-changes-on-a-branch">
+<h2><span class="section-number">4.4. </span>Pushing Changes on a Branch<a class="headerlink" href="#pushing-changes-on-a-branch" title="Link to this heading">#</a></h2>
+<p>To see how GitHub makes reference to this commit, we’ll need to push our
+changes. But if you try <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> from here, you’ll get the following error
+message:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>fatal: The current branch FIRST_NAME_LAST_INITIAL has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin FIRST_NAME_LAST_INITIAL
+</pre></div>
+</div>
+<p>Here, Git is telling you that the remote repository doesn’t have a branch to
+associate your changes with; you’ve made a <em>local</em> branch, but that doesn’t
+automatically create a <em>remote</em> branch. We can see what branches are available
+on the remote repository with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  main
+* first-name_last-initial
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/carl_s
+</pre></div>
+</div>
+<p>The text in black lists local branches, while the red text lists remote
+branches. The “-&gt;” arrow that points from a red remote with a black local tells
+you which remote branch your own main branch is synced with.</p>
+<p>From this list, you can see that the remote repository doesn’t have your
+branch. You’ll need to push it.</p>
+<p>To do so, type the following into your command line:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>BRANCH_NAME
+</pre></div>
+</div>
+<p>There’s also a bit of shorthand for this command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>BRANCH_NAME
+</pre></div>
+</div>
+<p>(Note: here “origin” references your local repository.)</p>
+<p>Once you press “Enter”, you should see something like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>FIRST_NAME_LAST_INITIAL
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for &#39;&lt;first-name_last-initial&gt;&#39; on GitHub by visiting:
+remote:      https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox/pull/new/&lt;first-name_last-initial&gt;
+remote: 
+To github.com:ucdavis-datalab-training/workshop_git_for_teams_sandbox.git
+ * [new branch]      &lt;first-name_last-initial&gt; -&gt; &lt;first-name_last-initial&gt;
+Branch &#39;&lt;first-name_last-initial&gt;&#39; set up to track remote branch &#39;&lt;first-name_last-initial&gt;&#39; from &#39;origin&#39;.
+</pre></div>
+</div>
+<p>Now, if you type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code>, you’ll see a remote copy of your branch. You
+can also visit the repository page on GitHub, where you’ll see a notice that a
+branch has “recent pushes”.</p>
+<figure class="align-default">
+<img alt="The sandbox repository with a message showing recent pushes to the tyler_s branch." src="../_images/github_recent_pushes.png" />
+</figure>
+<p>Click on the “branches” icon:</p>
+<figure class="align-default">
+<img alt="The sandbox repository with a red box around the branches button." src="../_images/github_recent_pushes_focus.png" />
+</figure>
+<p>…and you’ll see a list of branches.</p>
+<p>If you click on yours, you’ll see that this branch is “ahead” of the main
+branch by 1 commit. You’ll also see that your change has appeared down in the
+README view. Finally, you’ll see in the commit message view that the message
+has turned your issue number into a hyperlink.</p>
+<figure class="align-default">
+<img alt="The tyler_s branch of the sandbox repository." src="../_images/github_pushed_branch_changes.png" />
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_cloning-a-repository.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Cloning a Repository</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_merging-remote-branches.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Merging Remote Branches</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-issues">4.1. About Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-an-issue">4.2. Opening an Issue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">4.3. Making Changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-changes-on-a-branch">4.4. Pushing Changes on a Branch</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carl Stahmer, Tyler Shoemaker, Wesley Brooks, Nick Ulle
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
