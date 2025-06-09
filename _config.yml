@@ -28,6 +28,7 @@ execute:
   execute_notebooks: auto
 
 html:
+  announcement: "⚠️ This reader is archived and may be outdated. <a href='https://ucdavisdatalab.github.io/workshop_reproducible_research/'>Click here</a> for a newer version. ⚠️"
   use_issues_button: true
   use_repository_button: true
   # JupyterBook defaults to a copyright in the footer. We take this out and use

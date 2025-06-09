@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> This reader is archived and may be outdated. [Click here][new] for a newer
+> version.
+
+[new]: https://github.com/ucdavisdatalab/workshop_reproducible_research
+
+
 Workshop: Reproducible Research for Teams with GitHub
 =====================================================
 
